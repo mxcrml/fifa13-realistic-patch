@@ -41,8 +41,8 @@ Download all files from this repo, then:
 
    Run your file regenerator tool and let it finish. This updates the game's master index so it recognizes the new files.
 
-
-
 5. **Start a new Career**
 
    This mod only takes effect on a **new career save** - it will not affect existing saves.
+
+## **Testing in progress (*will be completed later*)**
