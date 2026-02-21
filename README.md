@@ -1,26 +1,48 @@
 # FIFA 13 Career Mode Realistic – Rebalance Edition
 
-This project is a careful rework of Gugabelletti's Career Mode mod for FIFA 13.
-The objective is not to reinvent the mod, but to:
+A careful rework of Gugabelletti's Career Mode mod for FIFA 13. The goal is not to reinvent the mod, but to keep what works (growth and retirement logic, no platinum regens), remove risky or unstable settings, and improve balance without over-modifying core systems.
 
--   Keep / potentially improve what works : growth and retirement logics, no platinum regens
--   Remove risky or unstable settings
--   Improve balance without over-modifying core systems
+Mode rebuilt from vanilla FIFA 13 settings for maximum stability.
 
-This version is rebuilt directly from FIFA 13 Vanilla settings to ensure maximum stability.
+## Sources
+- [Default / Vanilla files](https://soccergaming.com/forums/threads/fifa-13-career-files-ini.172583/) - soccergaming.com
+- [Original Gugabelletti patch](https://soccergaming.com/forums/threads/fifa-13-career-mode-realistic-improvements-mod.6475375/) - soccergaming.com
 
-## Files sources
+## Changes from Gugabelletti's version
+- Fixed preseason friendly scheduling
+- Restored form calculator defaults
+- Restored default `gpattributemodifiers`
+- Rebalanced match importance settings
+- Reduced player growth XP and subs factor
+- Rebalanced retirement curves
+- Restored most transfer files to default values
 
-- [Default / Vanilla files (soccergaming.com)](https://soccergaming.com/forums/threads/fifa-13-career-files-ini.172583/)
-- [Original patch from Gugabelletti (soccergaming.com)](https://soccergaming.com/forums/threads/fifa-13-career-mode-realistic-improvements-mod.6475375/)
+Full details are available in the difference report.
 
-## Main changes from Gugabelletti's version
--   Fixed preseason friendly scheduling
--   Restored form calculator defaults over 10 games
--   Restored gpattributemodifiers.from default version
--   Rebalanced match importance settings
--   Reduced some player growth XP and subs factor   
--   Rebalanced a little retirement curves
--   Restored most of the transfer.ini and transfers.ini files to default values
+## Installation
 
-Changes details and comparison between the different version are available in the difference report.
+Download all files from this repo, then:
+
+1. **Open your FIFA 13 Game folder**
+
+   Navigate to your FIFA 13 installation and open the **Game** folder.
+
+   *Default path: `C:/Program Files (x86)/EA Sports/FIFA 13/Game/`*
+
+2. **Go to the mod data folder**
+
+   Inside the Game folder, navigate to: `dlc\dlc_FootballCompEng\dlc\FootballCompEng\data`
+
+3. **Copy the mod files**
+
+   Copy all `.ini` and `.txt` files from this mod pack and paste them into the folder above.
+
+4. **Run the File Regenerator (*Skipping this step will break the mod*)**
+
+   Run your file regenerator tool and let it finish. This updates the game's master index so it recognizes the new files.
+
+
+
+5. **Start a new Career**
+
+   This mod only takes effect on a **new career save** - it will not affect existing saves.
