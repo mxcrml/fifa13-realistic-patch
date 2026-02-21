@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WinMerge File Compare Report</title>
+<style>
+<!--
+table { table-layout: fixed; margin: 0; border: 1px solid #a0a0a0; box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); }
+th { position: sticky; top: 0; }
+td,th { word-break: break-all; font-size: 12pt; padding: 0 3px; }
+tr { vertical-align: top; }
+.title { font-weight: bold; color: white; background-color: blue; vertical-align: top; text-align: center; padding: 4px 4px; background: linear-gradient(mediumblue, darkblue);}
+.sf3b2 {color: #000000; background-color: #ffffff; }
+.sf3b5 {color: #000000; background-color: #0078d7; }
+.sf3b14 {color: #000000; background-color: #ffa0a0; }
+.sf3b16 {color: #000000; background-color: #f1e2ad; }
+.sf3b18 {color: #000000; background-color: #ffaa82; }
+.sf3b19 {color: #000000; background-color: #c8816c; }
+.sf6b2 {color: #ffffff; background-color: #ffffff; }
+.sf6b5 {color: #ffffff; background-color: #0078d7; }
+.sf6b14 {color: #ffffff; background-color: #ffa0a0; }
+.sf6b16 {color: #ffffff; background-color: #f1e2ad; }
+.sf6b18 {color: #ffffff; background-color: #ffaa82; }
+.sf6b19 {color: #ffffff; background-color: #c8816c; }
+.sf7b2 {color: #0000ff; background-color: #ffffff; font-weight: bold; }
+.sf7b5 {color: #0000ff; background-color: #0078d7; font-weight: bold; }
+.sf7b14 {color: #0000ff; background-color: #ffa0a0; font-weight: bold; }
+.sf7b16 {color: #0000ff; background-color: #f1e2ad; font-weight: bold; }
+.sf7b18 {color: #0000ff; background-color: #ffaa82; font-weight: bold; }
+.sf7b19 {color: #0000ff; background-color: #c8816c; font-weight: bold; }
+.sf8b2 {color: #800080; background-color: #ffffff; }
+.sf8b5 {color: #800080; background-color: #0078d7; }
+.sf8b14 {color: #800080; background-color: #ffa0a0; }
+.sf8b16 {color: #800080; background-color: #f1e2ad; }
+.sf8b18 {color: #800080; background-color: #ffaa82; }
+.sf8b19 {color: #800080; background-color: #c8816c; }
+.sf9b2 {color: #008000; background-color: #ffffff; }
+.sf9b5 {color: #008000; background-color: #0078d7; }
+.sf9b14 {color: #008000; background-color: #ffa0a0; }
+.sf9b16 {color: #008000; background-color: #f1e2ad; }
+.sf9b18 {color: #008000; background-color: #ffaa82; }
+.sf9b19 {color: #008000; background-color: #c8816c; }
+.sf10b2 {color: #ff0000; background-color: #ffffff; }
+.sf10b5 {color: #ff0000; background-color: #0078d7; }
+.sf10b14 {color: #ff0000; background-color: #ffa0a0; }
+.sf10b16 {color: #ff0000; background-color: #f1e2ad; }
+.sf10b18 {color: #ff0000; background-color: #ffaa82; }
+.sf10b19 {color: #ff0000; background-color: #c8816c; }
+.sf11b2 {color: #606060; background-color: #ffffff; }
+.sf11b5 {color: #606060; background-color: #0078d7; }
+.sf11b14 {color: #606060; background-color: #ffa0a0; }
+.sf11b16 {color: #606060; background-color: #f1e2ad; }
+.sf11b18 {color: #606060; background-color: #ffaa82; }
+.sf11b19 {color: #606060; background-color: #c8816c; }
+.sf12b2 {color: #800000; background-color: #ffffff; }
+.sf12b5 {color: #800000; background-color: #0078d7; }
+.sf12b14 {color: #800000; background-color: #ffa0a0; }
+.sf12b16 {color: #800000; background-color: #f1e2ad; }
+.sf12b18 {color: #800000; background-color: #ffaa82; }
+.sf12b19 {color: #800000; background-color: #c8816c; }
+.sf13b2 {color: #0080c0; background-color: #ffffff; }
+.sf13b5 {color: #0080c0; background-color: #0078d7; }
+.sf13b14 {color: #0080c0; background-color: #ffa0a0; }
+.sf13b16 {color: #0080c0; background-color: #f1e2ad; }
+.sf13b18 {color: #0080c0; background-color: #ffaa82; }
+.sf13b19 {color: #0080c0; background-color: #c8816c; }
+.sf15b2 {color: #000000; background-color: #ffffff; }
+.sf15b5 {color: #000000; background-color: #0078d7; }
+.sf15b14 {color: #000000; background-color: #ffa0a0; }
+.sf15b16 {color: #000000; background-color: #f1e2ad; }
+.sf15b18 {color: #000000; background-color: #ffaa82; }
+.sf15b19 {color: #000000; background-color: #c8816c; }
+.sf17b2 {color: #000000; background-color: #ffffff; }
+.sf17b5 {color: #000000; background-color: #0078d7; }
+.sf17b14 {color: #000000; background-color: #ffa0a0; }
+.sf17b16 {color: #000000; background-color: #f1e2ad; }
+.sf17b18 {color: #000000; background-color: #ffaa82; }
+.sf17b19 {color: #000000; background-color: #c8816c; }
+.sf20b2 {color: #000080; background-color: #ffffff; }
+.sf20b5 {color: #000080; background-color: #0078d7; }
+.sf20b14 {color: #000080; background-color: #ffa0a0; }
+.sf20b16 {color: #000080; background-color: #f1e2ad; }
+.sf20b18 {color: #000080; background-color: #ffaa82; }
+.sf20b19 {color: #000080; background-color: #c8816c; }
+.sf21b2 {color: #0080c0; background-color: #ffffff; }
+.sf21b5 {color: #0080c0; background-color: #0078d7; }
+.sf21b14 {color: #0080c0; background-color: #ffa0a0; }
+.sf21b16 {color: #0080c0; background-color: #f1e2ad; }
+.sf21b18 {color: #0080c0; background-color: #ffaa82; }
+.sf21b19 {color: #0080c0; background-color: #c8816c; }
+.sf3b2i {color: #ababab; background-color: #ffffff; }
+.sf3b5i {color: #005190; background-color: #0078d7; }
+.sf3b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf3b16i {color: #a19774; background-color: #f1e2ad; }
+.sf3b18i {color: #ab7257; background-color: #ffaa82; }
+.sf3b19i {color: #865749; background-color: #c8816c; }
+.sf6b2i {color: #ffffff; background-color: #ffffff; }
+.sf6b5i {color: #54a4e4; background-color: #0078d7; }
+.sf6b14i {color: #ffbfbf; background-color: #ffa0a0; }
+.sf6b16i {color: #f5ebc8; background-color: #f1e2ad; }
+.sf6b18i {color: #ffc6ab; background-color: #ffaa82; }
+.sf6b19i {color: #daaa9c; background-color: #c8816c; }
+.sf7b2i {color: #ababff; background-color: #ffffff; font-weight: bold; }
+.sf7b5i {color: #0051e4; background-color: #0078d7; font-weight: bold; }
+.sf7b14i {color: #ab6bbf; background-color: #ffa0a0; font-weight: bold; }
+.sf7b16i {color: #a197c8; background-color: #f1e2ad; font-weight: bold; }
+.sf7b18i {color: #ab72ab; background-color: #ffaa82; font-weight: bold; }
+.sf7b19i {color: #86579c; background-color: #c8816c; font-weight: bold; }
+.sf8b2i {color: #d5abd5; background-color: #ffffff; }
+.sf8b5i {color: #2a51bb; background-color: #0078d7; }
+.sf8b14i {color: #d56b96; background-color: #ffa0a0; }
+.sf8b16i {color: #cc979f; background-color: #f1e2ad; }
+.sf8b18i {color: #d57282; background-color: #ffaa82; }
+.sf8b19i {color: #b15772; background-color: #c8816c; }
+.sf9b2i {color: #abd5ab; background-color: #ffffff; }
+.sf9b5i {color: #007a90; background-color: #0078d7; }
+.sf9b14i {color: #ab966b; background-color: #ffa0a0; }
+.sf9b16i {color: #a1c274; background-color: #f1e2ad; }
+.sf9b18i {color: #ab9d57; background-color: #ffaa82; }
+.sf9b19i {color: #868149; background-color: #c8816c; }
+.sf10b2i {color: #ffabab; background-color: #ffffff; }
+.sf10b5i {color: #545190; background-color: #0078d7; }
+.sf10b14i {color: #ff6b6b; background-color: #ffa0a0; }
+.sf10b16i {color: #f59774; background-color: #f1e2ad; }
+.sf10b18i {color: #ff7257; background-color: #ffaa82; }
+.sf10b19i {color: #da5749; background-color: #c8816c; }
+.sf11b2i {color: #cbcbcb; background-color: #ffffff; }
+.sf11b5i {color: #1f71b0; background-color: #0078d7; }
+.sf11b14i {color: #cb8b8b; background-color: #ffa0a0; }
+.sf11b16i {color: #c1b794; background-color: #f1e2ad; }
+.sf11b18i {color: #cb9277; background-color: #ffaa82; }
+.sf11b19i {color: #a67769; background-color: #c8816c; }
+.sf12b2i {color: #d5abab; background-color: #ffffff; }
+.sf12b5i {color: #2a5190; background-color: #0078d7; }
+.sf12b14i {color: #d56b6b; background-color: #ffa0a0; }
+.sf12b16i {color: #cc9774; background-color: #f1e2ad; }
+.sf12b18i {color: #d57257; background-color: #ffaa82; }
+.sf12b19i {color: #b15749; background-color: #c8816c; }
+.sf13b2i {color: #abd5eb; background-color: #ffffff; }
+.sf13b5i {color: #007ad0; background-color: #0078d7; }
+.sf13b14i {color: #ab96aa; background-color: #ffa0a0; }
+.sf13b16i {color: #a1c2b3; background-color: #f1e2ad; }
+.sf13b18i {color: #ab9d96; background-color: #ffaa82; }
+.sf13b19i {color: #868187; background-color: #c8816c; }
+.sf15b2i {color: #ababab; background-color: #ffffff; }
+.sf15b5i {color: #005190; background-color: #0078d7; }
+.sf15b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf15b16i {color: #a19774; background-color: #f1e2ad; }
+.sf15b18i {color: #ab7257; background-color: #ffaa82; }
+.sf15b19i {color: #865749; background-color: #c8816c; }
+.sf17b2i {color: #ababab; background-color: #ffffff; }
+.sf17b5i {color: #005190; background-color: #0078d7; }
+.sf17b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf17b16i {color: #a19774; background-color: #f1e2ad; }
+.sf17b18i {color: #ab7257; background-color: #ffaa82; }
+.sf17b19i {color: #865749; background-color: #c8816c; }
+.sf20b2i {color: #ababd5; background-color: #ffffff; }
+.sf20b5i {color: #0051bb; background-color: #0078d7; }
+.sf20b14i {color: #ab6b96; background-color: #ffa0a0; }
+.sf20b16i {color: #a1979f; background-color: #f1e2ad; }
+.sf20b18i {color: #ab7282; background-color: #ffaa82; }
+.sf20b19i {color: #865772; background-color: #c8816c; }
+.sf21b2i {color: #abd5eb; background-color: #ffffff; }
+.sf21b5i {color: #007ad0; background-color: #0078d7; }
+.sf21b14i {color: #ab96aa; background-color: #ffa0a0; }
+.sf21b16i {color: #a1c2b3; background-color: #f1e2ad; }
+.sf21b18i {color: #ab9d96; background-color: #ffaa82; }
+.sf21b19i {color: #868187; background-color: #c8816c; }
+.cn {text-align: center; word-break: normal; color: #000000; background-color: #f0f0f0;}
+.ln {text-align: right; word-break: normal; color: #000000; background-color: #f0f0f0;}
+-->
+</style>
+</head>
+<body>
+<table style="width: 100%; border-collapse: collapse;">
+<colgroup>
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 3 - 0.5em);" />
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 3 - 0.5em);" />
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 3 - 0.5em);" />
+</colgroup>
+<thead>
+<tr>
+<th colspan="2" class="title">Sans titre à Gauche</th>
+<th colspan="2" class="title">C:\Users\Maxime\Desktop\Fifa 13 ini files\Vanilla version\commentators_notes.ini</th>
+<th colspan="2" class="title">C:\Users\Maxime\Desktop\Fifa 13 ini files\Maxdiati&apos;s version\commentators_notes.ini</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="ln"><a id="d1" href="#d1">.</a></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[COMMENTATORS_NOTES_GAP_RATIO_BORDER]</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[COMMENTATORS_NOTES_GAP_RATIO_BORDER]</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_0</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_0</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_1</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">3</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_1</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_2</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">4</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_2</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">4</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_3</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_3</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_4</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">6</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_4</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">6</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_5</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">6</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_5</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">6</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_6</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_6</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_7</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">8</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_7</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">8</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_8</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">8</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_8</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">8</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_9</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_9</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_10</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_10</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_11</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_11</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_12</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_12</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_13</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_13</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_14</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_14</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_15</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_15</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_16</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_16</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_17</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_17</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_18</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_18</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_19</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_19</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_20</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_20</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_21</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_21</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_22</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_22</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_23</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_23</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_24</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_24</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_25</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_25</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_26</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_26</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_27</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_27</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_28</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_28</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_29</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">12</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_29</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">12</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_30</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">13</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_30</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">13</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_31</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">13</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_31</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">13</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_32</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">13</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_32</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">13</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_33</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">14</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_33</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">14</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_34</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">14</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_34</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">14</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_35</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">15</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_35</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_36</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">15</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_36</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_37</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">15</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_37</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_38</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">15</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_38</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_39</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">15</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_39</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_40</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">15</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_40</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_41</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">15</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_41</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_42</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">15</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_42</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_43</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">15</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_43</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_44</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">15</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_44</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_45</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">15</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_45</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_46</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">15</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_46</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATIO_BORDER_MAX</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">47</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RATIO_BORDER_MAX</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">47</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[COMMENTATORS_NOTES_TEAM_FORM]</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[COMMENTATORS_NOTES_TEAM_FORM]</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">LAST10_AMAZING</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">67</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">LAST10_AMAZING</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">67</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">LAST10_TERRIBLE</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">33</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">LAST10_TERRIBLE</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">33</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">LAST5_BAD</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">33</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">LAST5_BAD</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">33</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">LAST5_GOOD</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">67</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">LAST5_GOOD</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">67</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">LAST5_STUTTERING</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">50</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">LAST5_STUTTERING</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">50</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[COMMENTATORS_NOTES_TEAM_SKILL]</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[COMMENTATORS_NOTES_TEAM_SKILL]</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_SKILL_AVERAGE</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">43</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_SKILL_AVERAGE</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">43</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_SKILL_BIG</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">89</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_SKILL_BIG</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">89</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_SKILL_GOOD</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">69</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_SKILL_GOOD</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">69</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_SKILL_WEAK</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_SKILL_WEAK</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[CM_COMMENTATORS_NOTES_EVENT_PRIORITIES<wbr>]</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[CM_COMMENTATORS_NOTES_EVENT_PRIORITIES<wbr>]</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_LAST_SEASON_CHAMPION</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_LAST_SEASON_CHAMPION</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_LAST_SEASON_RELEGATED</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_LAST_SEASON_RELEGATED</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_LAST_SEASON_PROMOTED</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_LAST_SEASON_PROMOTED</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">POST_RESULT_WIN_CLINCH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">POST_RESULT_WIN_CLINCH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">POST_RESULT_DRAW_CLINCH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">POST_RESULT_DRAW_CLINCH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">POST_RESULT_LOSS_GUARANTEE_RELEGATION</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">0<wbr></span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">POST_RESULT_LOSS_GUARANTEE_RELEGATION</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">0<wbr></span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">POST_RESULT_DRAW_GUARANTEE_RELEGATION</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">0<wbr></span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">POST_RESULT_DRAW_GUARANTEE_RELEGATION</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">0<wbr></span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TOP_AT_CHRISTMAS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TOP_AT_CHRISTMAS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">BOTTOM_AT_CHRISTMAS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">BOTTOM_AT_CHRISTMAS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">SUPERCUP_NEXT_GAME</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">SUPERCUP_NEXT_GAME</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_PAP_WON_GOLDENGLOVE</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_PAP_WON_GOLDENGLOVE</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_PAP_WON_MOTM</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_PAP_WON_MOTM</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_GOLDEN_BOOT</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_GOLDEN_BOOT</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">FIRST_VS_SECOND</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">2</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">FIRST_VS_SECOND</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">2</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">FIRST_VS_THIRD</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">2</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">FIRST_VS_THIRD</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">2</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">FIRST_VS_LAST</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">2</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">FIRST_VS_LAST</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">2</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">SECOND_VS_THIRD</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">2</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">SECOND_VS_THIRD</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">2</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">FIRST_VS_FOURTH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">2</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">FIRST_VS_FOURTH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">2</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">LAST_VS_SECONDLAST</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">2</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">LAST_VS_SECONDLAST</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">2</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RELEGATION_ZONE_CLASH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">2</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RELEGATION_ZONE_CLASH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">2</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">CUP_NEXTGAME_RIVALS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">2</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">CUP_NEXTGAME_RIVALS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">2</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">CUP_NEXTGAME_DERBY</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">2</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">CUP_NEXTGAME_DERBY</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">2</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_HIGHEST_POSSIBLE_FINISH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">2</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_HIGHEST_POSSIBLE_FINISH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">2</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">HIGH_TEAM_CLASH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">3</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">HIGH_TEAM_CLASH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">LOWLY_TEAM_CLASH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">3</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">LOWLY_TEAM_CLASH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_HIGHEST_PROBABLE_FINISH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">3</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_HIGHEST_PROBABLE_FINISH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_EXPECTATION_CLASH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">3</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_EXPECTATION_CLASH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAMS_VS_TEAM_SKILL</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">3</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAMS_VS_TEAM_SKILL</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_EXPECTATION</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">3</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_EXPECTATION</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_FORM</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">3</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_FORM</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_ACTUAL_VS_EXPECTATION</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">3</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_ACTUAL_VS_EXPECTATION</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_PREDICTION_VS_EXPECTATION</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">3</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_PREDICTION_VS_EXPECTATION</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_ACTUAL_LEAGUE_GROUPING</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">3</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_ACTUAL_LEAGUE_GROUPING</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RIVALS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">3</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">RIVALS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">DERBY_GAME</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">3</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">DERBY_GAME</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">SEASON_LEADER</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">4</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">SEASON_LEADER</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">4</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">SEASON_BOTTOM_PLACE</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">4</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">SEASON_BOTTOM_PLACE</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">4</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">YET_TO_WIN</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">4</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">YET_TO_WIN</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">4</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_LEAGUE_FIRST_EVER_GAME</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">4</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_LEAGUE_FIRST_EVER_GAME</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">4</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">UNBEATEN_ALL_COMPS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">UNBEATEN_ALL_COMPS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">YET_TO_WIN_IN_LEAGUE</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">YET_TO_WIN_IN_LEAGUE</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_CLINCHED_GROUPING</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_CLINCHED_GROUPING</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">UNBEATEN_LEAGUE</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">UNBEATEN_LEAGUE</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">UNBEATEN_HOME_LEAGUE</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">UNBEATEN_HOME_LEAGUE</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">UNBEATEN_AWAY_LEAGUE</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">UNBEATEN_AWAY_LEAGUE</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_BIRTHDAY_TODAY</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_BIRTHDAY_TODAY</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_PLAYING_WITH_INJURY</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_PLAYING_WITH_INJURY</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_LEAGUE_TOP_SCORER_IN_LEAGUE</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_LEAGUE_TOP_SCORER_IN_LEAGUE</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_TEAM_PLAYER_OF_THE_MONTH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_TEAM_PLAYER_OF_THE_MONTH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_LEAGUE_PLAYER_OF_THE_MONTH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_LEAGUE_PLAYER_OF_THE_MONTH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_PAP_DEBUT_CLEANSHEET_GK</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">6</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_PAP_DEBUT_CLEANSHEET_GK</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">6</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">LAST_GAME_RESULTS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">6</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">LAST_GAME_RESULTS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">6</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_LAST_SEASON_RESULTS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">6</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_LAST_SEASON_RESULTS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">6</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">TEAM_LAST_SEASON_RESULTS_CLASH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">6</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">TEAM_LAST_SEASON_RESULTS_CLASH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">6</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">EXCEEDING_EXPECTATIONS_GLORY</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">6</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">EXCEEDING_EXPECTATIONS_GLORY</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">6</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">BELOW_EXPECTATIONS_PRESSURE</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">6</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">BELOW_EXPECTATIONS_PRESSURE</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">6</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">FIXTURE_MATCH_IMPORTANCE</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">6</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">FIXTURE_MATCH_IMPORTANCE</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">6</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_PAP_DEBUT_CLEANSHEET_DEFENSE</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">6</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_PAP_DEBUT_CLEANSHEET_DEFENSE</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">6</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_PAP_DEBUT_MATCHRATING_LOW</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_PAP_DEBUT_MATCHRATING_LOW</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_PAP_DEBUT_MATCHRATING_MED</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_PAP_DEBUT_MATCHRATING_MED</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_PAP_DEBUT_MATCHRATING_HIGH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_PAP_DEBUT_MATCHRATING_HIGH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_LEAGUE_TOP_SCORER_FOR_TEAM</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">8</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_LEAGUE_TOP_SCORER_FOR_TEAM</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">8</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_BAD_MORALE</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">8</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_BAD_MORALE</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">8</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_LEAGUE_AMONG_TOP_SCORERS_IN_LEAG<wbr>UE</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_LEAGUE_AMONG_TOP_SCORERS_IN_LEAG<wbr>UE</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_LEAGUE_GOALS_LAST_SEASON</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_LEAGUE_GOALS_LAST_SEASON</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_LEAGUE_GOALS_THIS_SEASON</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_LEAGUE_GOALS_THIS_SEASON</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_LEAGUE_GOALS_IN_LAST_X_GAMES</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_LEAGUE_GOALS_IN_LAST_X_GAMES</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_LEAGUE_ASSISTS_THIS_SEASON</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_LEAGUE_ASSISTS_THIS_SEASON</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_LEAGUE_PLAYED_ALL_GAMES</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_LEAGUE_PLAYED_ALL_GAMES</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_LEAGUE_FIRST_APPEARANCE_THIS_SEA<wbr>SON</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_LEAGUE_FIRST_APPEARANCE_THIS_SEA<wbr>SON</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_LEAGUE_FIRST_EVER_GAME_FOR_TEAM</span><span style="color: #000000; background-color: #efcb05; ">=<wbr></span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_LEAGUE_FIRST_EVER_GAME_FOR_TEAM</span><span style="color: #000000; background-color: #fbfadf; ">=<wbr></span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_LEAGUE_ONE_YELLOW_FROM_SUSPENSIO<wbr>N</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_LEAGUE_ONE_YELLOW_FROM_SUSPENSIO<wbr>N</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_LEAGUE_RETURNED_FROM_SUSPENSION</span><span style="color: #000000; background-color: #efcb05; ">=<wbr></span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_LEAGUE_RETURNED_FROM_SUSPENSION</span><span style="color: #000000; background-color: #fbfadf; ">=<wbr></span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_ALL_GOALS_THIS_SEASON</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_ALL_GOALS_THIS_SEASON</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_YELLOWS_THIS_SEASON</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_YELLOWS_THIS_SEASON</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_REDS_THIS_SEASON</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_REDS_THIS_SEASON</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_GREAT_FORM</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_GREAT_FORM</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_YOUTH_PLAYER_DATA</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">9</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_YOUTH_PLAYER_DATA</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">9</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">CAN_STILL_ADD_TO_SQUAD</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">CAN_STILL_ADD_TO_SQUAD</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVORED_WIN</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVORED_WIN</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVORED_DRAW</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10<wbr></span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVORED_DRAW</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10<wbr></span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVORED_LOSS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10<wbr></span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVORED_LOSS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10<wbr></span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVOR_EVEN_WIN</span><span style="color: #000000; background-color: #efcb05; ">=<wbr></span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVOR_EVEN_WIN</span><span style="color: #000000; background-color: #fbfadf; ">=<wbr></span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVOR_EVEN_DRAW<wbr></span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVOR_EVEN_DRAW<wbr></span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVOR_EVEN_LOSS<wbr></span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVOR_EVEN_LOSS<wbr></span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_NOT_FAVORED_WIN<wbr></span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_NOT_FAVORED_WIN<wbr></span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_NOT_FAVORED_DRA<wbr>W</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_NOT_FAVORED_DRA<wbr>W</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_NOT_FAVORED_LOS<wbr>S</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_NOT_FAVORED_LOS<wbr>S</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_PAP_WON_TOPSCORER</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_PAP_WON_TOPSCORER</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_AT_FINALS_ISGOAL_WIN</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_AT_FINALS_ISGOAL_WIN</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_AT_FINALS_ISGOAL_LOSS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_AT_FINALS_ISGOAL_LOSS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_AT_FINALS_ABOVEGOAL_WIN</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_AT_FINALS_ABOVEGOAL_WIN</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_AT_FINALS_ABOVEGOAL_LOSS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_AT_FINALS_ABOVEGOAL_LOSS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_AT_SEMI_BELOWGOAL_LOSS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_AT_SEMI_BELOWGOAL_LOSS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_AT_SEMI_ISGOAL_LOSS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_AT_SEMI_ISGOAL_LOSS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_AT_SEMI_ABOVEGOAL_LOSS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_AT_SEMI_ABOVEGOAL_LOSS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_AT_QUARTER_BELOWGOAL_LOSS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_AT_QUARTER_BELOWGOAL_LOSS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_AT_QUARTER_ISGOAL_LOSS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_AT_QUARTER_ISGOAL_LOSS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_AT_QUARTER_ABOVEGOAL_LOSS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_AT_QUARTER_ABOVEGOAL_LOSS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_AT_ROUND_BELOWGOAL_LOSS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_AT_ROUND_BELOWGOAL_LOSS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_AT_ROUND_ISGOAL_LOSS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_AT_ROUND_ISGOAL_LOSS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_AT_ROUND_ABOVEGOAL_LOSS</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_AT_ROUND_ABOVEGOAL_LOSS</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVORED_WIN_CON<wbr>VINCING</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVORED_WIN_CON<wbr>VINCING</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVORED_LOSS_TO<wbr>UGH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVORED_LOSS_TO<wbr>UGH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVOR_EVEN_WIN_<wbr>CONVINCING</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVOR_EVEN_WIN_<wbr>CONVINCING</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVOR_EVEN_LOSS<wbr>_TOUGH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_FAVOR_EVEN_LOSS<wbr>_TOUGH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_NOT_FAVORED_WIN<wbr>_CONVINCING</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_NOT_FAVORED_WIN<wbr>_CONVINCING</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_NOT_FAVORED_LOS<wbr>S_TOUGH</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">INTL_MANAGER_DEBUT_TEAM_NOT_FAVORED_LOS<wbr>S_TOUGH</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">MATCHDAY_INTRO_HOMETEAM</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">500</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">MATCHDAY_INTRO_HOMETEAM</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">500</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">MATCHDAY_INTRO_AWAYTEAM</span><span style="color: #000000; background-color: #efcb05; ">=</span><span style="color: #000000; background-color: #efcb05; ">500</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">MATCHDAY_INTRO_AWAYTEAM</span><span style="color: #000000; background-color: #fbfadf; ">=</span><span style="color: #000000; background-color: #fbfadf; ">500</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

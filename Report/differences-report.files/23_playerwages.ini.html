@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WinMerge File Compare Report</title>
+<style>
+<!--
+table { table-layout: fixed; margin: 0; border: 1px solid #a0a0a0; box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); }
+th { position: sticky; top: 0; }
+td,th { word-break: break-all; font-size: 12pt; padding: 0 3px; }
+tr { vertical-align: top; }
+.title { font-weight: bold; color: white; background-color: blue; vertical-align: top; text-align: center; padding: 4px 4px; background: linear-gradient(mediumblue, darkblue);}
+.sf3b2 {color: #000000; background-color: #ffffff; }
+.sf3b5 {color: #000000; background-color: #0078d7; }
+.sf3b14 {color: #000000; background-color: #ffa0a0; }
+.sf3b16 {color: #000000; background-color: #f1e2ad; }
+.sf3b18 {color: #000000; background-color: #ffaa82; }
+.sf3b19 {color: #000000; background-color: #c8816c; }
+.sf6b2 {color: #ffffff; background-color: #ffffff; }
+.sf6b5 {color: #ffffff; background-color: #0078d7; }
+.sf6b14 {color: #ffffff; background-color: #ffa0a0; }
+.sf6b16 {color: #ffffff; background-color: #f1e2ad; }
+.sf6b18 {color: #ffffff; background-color: #ffaa82; }
+.sf6b19 {color: #ffffff; background-color: #c8816c; }
+.sf7b2 {color: #0000ff; background-color: #ffffff; font-weight: bold; }
+.sf7b5 {color: #0000ff; background-color: #0078d7; font-weight: bold; }
+.sf7b14 {color: #0000ff; background-color: #ffa0a0; font-weight: bold; }
+.sf7b16 {color: #0000ff; background-color: #f1e2ad; font-weight: bold; }
+.sf7b18 {color: #0000ff; background-color: #ffaa82; font-weight: bold; }
+.sf7b19 {color: #0000ff; background-color: #c8816c; font-weight: bold; }
+.sf8b2 {color: #800080; background-color: #ffffff; }
+.sf8b5 {color: #800080; background-color: #0078d7; }
+.sf8b14 {color: #800080; background-color: #ffa0a0; }
+.sf8b16 {color: #800080; background-color: #f1e2ad; }
+.sf8b18 {color: #800080; background-color: #ffaa82; }
+.sf8b19 {color: #800080; background-color: #c8816c; }
+.sf9b2 {color: #008000; background-color: #ffffff; }
+.sf9b5 {color: #008000; background-color: #0078d7; }
+.sf9b14 {color: #008000; background-color: #ffa0a0; }
+.sf9b16 {color: #008000; background-color: #f1e2ad; }
+.sf9b18 {color: #008000; background-color: #ffaa82; }
+.sf9b19 {color: #008000; background-color: #c8816c; }
+.sf10b2 {color: #ff0000; background-color: #ffffff; }
+.sf10b5 {color: #ff0000; background-color: #0078d7; }
+.sf10b14 {color: #ff0000; background-color: #ffa0a0; }
+.sf10b16 {color: #ff0000; background-color: #f1e2ad; }
+.sf10b18 {color: #ff0000; background-color: #ffaa82; }
+.sf10b19 {color: #ff0000; background-color: #c8816c; }
+.sf11b2 {color: #606060; background-color: #ffffff; }
+.sf11b5 {color: #606060; background-color: #0078d7; }
+.sf11b14 {color: #606060; background-color: #ffa0a0; }
+.sf11b16 {color: #606060; background-color: #f1e2ad; }
+.sf11b18 {color: #606060; background-color: #ffaa82; }
+.sf11b19 {color: #606060; background-color: #c8816c; }
+.sf12b2 {color: #800000; background-color: #ffffff; }
+.sf12b5 {color: #800000; background-color: #0078d7; }
+.sf12b14 {color: #800000; background-color: #ffa0a0; }
+.sf12b16 {color: #800000; background-color: #f1e2ad; }
+.sf12b18 {color: #800000; background-color: #ffaa82; }
+.sf12b19 {color: #800000; background-color: #c8816c; }
+.sf13b2 {color: #0080c0; background-color: #ffffff; }
+.sf13b5 {color: #0080c0; background-color: #0078d7; }
+.sf13b14 {color: #0080c0; background-color: #ffa0a0; }
+.sf13b16 {color: #0080c0; background-color: #f1e2ad; }
+.sf13b18 {color: #0080c0; background-color: #ffaa82; }
+.sf13b19 {color: #0080c0; background-color: #c8816c; }
+.sf15b2 {color: #000000; background-color: #ffffff; }
+.sf15b5 {color: #000000; background-color: #0078d7; }
+.sf15b14 {color: #000000; background-color: #ffa0a0; }
+.sf15b16 {color: #000000; background-color: #f1e2ad; }
+.sf15b18 {color: #000000; background-color: #ffaa82; }
+.sf15b19 {color: #000000; background-color: #c8816c; }
+.sf17b2 {color: #000000; background-color: #ffffff; }
+.sf17b5 {color: #000000; background-color: #0078d7; }
+.sf17b14 {color: #000000; background-color: #ffa0a0; }
+.sf17b16 {color: #000000; background-color: #f1e2ad; }
+.sf17b18 {color: #000000; background-color: #ffaa82; }
+.sf17b19 {color: #000000; background-color: #c8816c; }
+.sf20b2 {color: #000080; background-color: #ffffff; }
+.sf20b5 {color: #000080; background-color: #0078d7; }
+.sf20b14 {color: #000080; background-color: #ffa0a0; }
+.sf20b16 {color: #000080; background-color: #f1e2ad; }
+.sf20b18 {color: #000080; background-color: #ffaa82; }
+.sf20b19 {color: #000080; background-color: #c8816c; }
+.sf21b2 {color: #0080c0; background-color: #ffffff; }
+.sf21b5 {color: #0080c0; background-color: #0078d7; }
+.sf21b14 {color: #0080c0; background-color: #ffa0a0; }
+.sf21b16 {color: #0080c0; background-color: #f1e2ad; }
+.sf21b18 {color: #0080c0; background-color: #ffaa82; }
+.sf21b19 {color: #0080c0; background-color: #c8816c; }
+.sf3b2i {color: #ababab; background-color: #ffffff; }
+.sf3b5i {color: #005190; background-color: #0078d7; }
+.sf3b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf3b16i {color: #a19774; background-color: #f1e2ad; }
+.sf3b18i {color: #ab7257; background-color: #ffaa82; }
+.sf3b19i {color: #865749; background-color: #c8816c; }
+.sf6b2i {color: #ffffff; background-color: #ffffff; }
+.sf6b5i {color: #54a4e4; background-color: #0078d7; }
+.sf6b14i {color: #ffbfbf; background-color: #ffa0a0; }
+.sf6b16i {color: #f5ebc8; background-color: #f1e2ad; }
+.sf6b18i {color: #ffc6ab; background-color: #ffaa82; }
+.sf6b19i {color: #daaa9c; background-color: #c8816c; }
+.sf7b2i {color: #ababff; background-color: #ffffff; font-weight: bold; }
+.sf7b5i {color: #0051e4; background-color: #0078d7; font-weight: bold; }
+.sf7b14i {color: #ab6bbf; background-color: #ffa0a0; font-weight: bold; }
+.sf7b16i {color: #a197c8; background-color: #f1e2ad; font-weight: bold; }
+.sf7b18i {color: #ab72ab; background-color: #ffaa82; font-weight: bold; }
+.sf7b19i {color: #86579c; background-color: #c8816c; font-weight: bold; }
+.sf8b2i {color: #d5abd5; background-color: #ffffff; }
+.sf8b5i {color: #2a51bb; background-color: #0078d7; }
+.sf8b14i {color: #d56b96; background-color: #ffa0a0; }
+.sf8b16i {color: #cc979f; background-color: #f1e2ad; }
+.sf8b18i {color: #d57282; background-color: #ffaa82; }
+.sf8b19i {color: #b15772; background-color: #c8816c; }
+.sf9b2i {color: #abd5ab; background-color: #ffffff; }
+.sf9b5i {color: #007a90; background-color: #0078d7; }
+.sf9b14i {color: #ab966b; background-color: #ffa0a0; }
+.sf9b16i {color: #a1c274; background-color: #f1e2ad; }
+.sf9b18i {color: #ab9d57; background-color: #ffaa82; }
+.sf9b19i {color: #868149; background-color: #c8816c; }
+.sf10b2i {color: #ffabab; background-color: #ffffff; }
+.sf10b5i {color: #545190; background-color: #0078d7; }
+.sf10b14i {color: #ff6b6b; background-color: #ffa0a0; }
+.sf10b16i {color: #f59774; background-color: #f1e2ad; }
+.sf10b18i {color: #ff7257; background-color: #ffaa82; }
+.sf10b19i {color: #da5749; background-color: #c8816c; }
+.sf11b2i {color: #cbcbcb; background-color: #ffffff; }
+.sf11b5i {color: #1f71b0; background-color: #0078d7; }
+.sf11b14i {color: #cb8b8b; background-color: #ffa0a0; }
+.sf11b16i {color: #c1b794; background-color: #f1e2ad; }
+.sf11b18i {color: #cb9277; background-color: #ffaa82; }
+.sf11b19i {color: #a67769; background-color: #c8816c; }
+.sf12b2i {color: #d5abab; background-color: #ffffff; }
+.sf12b5i {color: #2a5190; background-color: #0078d7; }
+.sf12b14i {color: #d56b6b; background-color: #ffa0a0; }
+.sf12b16i {color: #cc9774; background-color: #f1e2ad; }
+.sf12b18i {color: #d57257; background-color: #ffaa82; }
+.sf12b19i {color: #b15749; background-color: #c8816c; }
+.sf13b2i {color: #abd5eb; background-color: #ffffff; }
+.sf13b5i {color: #007ad0; background-color: #0078d7; }
+.sf13b14i {color: #ab96aa; background-color: #ffa0a0; }
+.sf13b16i {color: #a1c2b3; background-color: #f1e2ad; }
+.sf13b18i {color: #ab9d96; background-color: #ffaa82; }
+.sf13b19i {color: #868187; background-color: #c8816c; }
+.sf15b2i {color: #ababab; background-color: #ffffff; }
+.sf15b5i {color: #005190; background-color: #0078d7; }
+.sf15b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf15b16i {color: #a19774; background-color: #f1e2ad; }
+.sf15b18i {color: #ab7257; background-color: #ffaa82; }
+.sf15b19i {color: #865749; background-color: #c8816c; }
+.sf17b2i {color: #ababab; background-color: #ffffff; }
+.sf17b5i {color: #005190; background-color: #0078d7; }
+.sf17b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf17b16i {color: #a19774; background-color: #f1e2ad; }
+.sf17b18i {color: #ab7257; background-color: #ffaa82; }
+.sf17b19i {color: #865749; background-color: #c8816c; }
+.sf20b2i {color: #ababd5; background-color: #ffffff; }
+.sf20b5i {color: #0051bb; background-color: #0078d7; }
+.sf20b14i {color: #ab6b96; background-color: #ffa0a0; }
+.sf20b16i {color: #a1979f; background-color: #f1e2ad; }
+.sf20b18i {color: #ab7282; background-color: #ffaa82; }
+.sf20b19i {color: #865772; background-color: #c8816c; }
+.sf21b2i {color: #abd5eb; background-color: #ffffff; }
+.sf21b5i {color: #007ad0; background-color: #0078d7; }
+.sf21b14i {color: #ab96aa; background-color: #ffa0a0; }
+.sf21b16i {color: #a1c2b3; background-color: #f1e2ad; }
+.sf21b18i {color: #ab9d96; background-color: #ffaa82; }
+.sf21b19i {color: #868187; background-color: #c8816c; }
+.cn {text-align: center; word-break: normal; color: #000000; background-color: #f0f0f0;}
+.ln {text-align: right; word-break: normal; color: #000000; background-color: #f0f0f0;}
+-->
+</style>
+</head>
+<body>
+<table style="width: 100%; border-collapse: collapse;">
+<colgroup>
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 3 - 0.5em);" />
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 3 - 0.5em);" />
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 3 - 0.5em);" />
+</colgroup>
+<thead>
+<tr>
+<th colspan="2" class="title">C:\Users\Maxime\Desktop\Fifa 13 ini files\GugaBelletti version\playerwages.ini</th>
+<th colspan="2" class="title">C:\Users\Maxime\Desktop\Fifa 13 ini files\Vanilla version\playerwages.ini</th>
+<th colspan="2" class="title">C:\Users\Maxime\Desktop\Fifa 13 ini files\Maxdiati&apos;s version\playerwages.ini</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_BASE]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_BASE]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_BASE]</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d1" href="#d1">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">METHOD </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">1</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">METHOD </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">1</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // 0 = Classic using magic numbers, 1 = NEW using Defined values</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">METHOD </span><span style="color: #000000; background-color: #fbfadf; ">= </span><span style="color: #000000; background-color: #fbfadf; ">1</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // </span><span style="color: #000000; background-color: #fbfadf; ">0</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;= </span><span style="color: #000000; background-color: #fbfadf; ">Classic</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">using</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">magic</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">numbers</span><span style="color: #000000; background-color: #fbfadf; ">, </span><span style="color: #000000; background-color: #fbfadf; ">1</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;= </span><span style="color: #000000; background-color: #fbfadf; ">NEW</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">using</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">Defined</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">values</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_CLASSIC]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_CLASSIC]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_CLASSIC]</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">MAGICADDITION_OVERALL </span><span class="sf11b2">= </span><span class="sf10b2">0.4</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">MAGICADDITION_OVERALL </span><span class="sf11b2">= </span><span class="sf10b2">0.4</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">MAGICADDITION_OVERALL </span><span class="sf11b2">= </span><span class="sf10b2">0.4</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">MAGICPOWER_OVERALL </span><span class="sf11b2">= </span><span class="sf10b2">3</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">MAGICPOWER_OVERALL </span><span class="sf11b2">= </span><span class="sf10b2">3</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">MAGICPOWER_OVERALL </span><span class="sf11b2">= </span><span class="sf10b2">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d2" href="#d2">.</a></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_NEW]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_NEW]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_NEW]</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d3" href="#d3">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">VALSCURRENCY </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">0</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">VALSCURRENCY </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">0</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; // The values defined in RATINGRANGE are defined in this currency: 0 = Pounds, 1 = dollars, 2 = Euros</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">VALSCURRENCY </span><span style="color: #000000; background-color: #fbfadf; ">= </span><span style="color: #000000; background-color: #fbfadf; ">0</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp; &nbsp; &nbsp; &nbsp; // </span><span style="color: #000000; background-color: #fbfadf; ">The</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">values</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">defined</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">in</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">RATINGRANGE</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">are</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">defined</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">in</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">this</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">currency</span><span style="color: #000000; background-color: #fbfadf; ">: </span><span style="color: #000000; background-color: #fbfadf; ">0</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;= </span><span style="color: #000000; background-color: #fbfadf; ">Pounds</span><span style="color: #000000; background-color: #fbfadf; ">, </span><span style="color: #000000; background-color: #fbfadf; ">1</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;= </span><span style="color: #000000; background-color: #fbfadf; ">dollars</span><span style="color: #000000; background-color: #fbfadf; ">, </span><span style="color: #000000; background-color: #fbfadf; ">2</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;= </span><span style="color: #000000; background-color: #fbfadf; ">Euros</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_RATINGRANGE]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_RATINGRANGE]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_RATINGRANGE]</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d4" href="#d4">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_1 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">10</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_1 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">10</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Overall ratings less than this will have a maximum base value defined by RATING_X_VAL</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_1 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">10</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_1_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">250</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_1_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">250</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; // Max base value (define as float)</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_1_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">250</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_2 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">40</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_2 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">40</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_2 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">40</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_2_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">1000</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_2_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">1000</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_2_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">1000</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_3 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">45</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_3 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">45</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_3 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">45</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_3_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">1150</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_3_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">1150</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_3_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">1150</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_4 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">50</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_4 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">50</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_4 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">50</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_4_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">1650</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_4_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">1650</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_4_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">1650</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_5 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">55</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_5 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">55</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_5 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">55</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_5_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">2150</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_5_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">2150</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_5_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">2150</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_6 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">60</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_6 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">60</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_6 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">60</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_6_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">2500</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_6_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">2500</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_6_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">2500</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_7 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">63</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_7 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">63</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_7 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">63</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_7_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">3000</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_7_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">3000</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_7_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">3000</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_8 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">66</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_8 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">66</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_8 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">66</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_8_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">4500</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_8_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">4500</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_8_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">4500</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_9 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">69</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_9 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">69</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_9 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">69</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_9_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">6000</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_9_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">6000</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_9_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">6000</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_10 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">72</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_10 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">72</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_10 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">72</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_10_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">9000</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_10_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">9000</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_10_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">9000</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_11 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">75</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_11 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">75</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_11 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">75</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_11_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">12000</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_11_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">12000</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_11_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">12000</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_12 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">78</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_12 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">78</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_12 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">78</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_12_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">18000</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_12_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">26000 &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_12_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">18000</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_13 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">81</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_13 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">81</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_13 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">81</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_13_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">26000</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_13_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">40000 &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_13_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">26000</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_14 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">83</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_14 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">83</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_14 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">83</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_14_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">34000</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_14_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">54000 &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_14_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">34000</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_15 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">85</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_15 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">85</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_15 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">85</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_15_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">41000</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_15_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">66000 &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_15_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">41000</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_16 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">88</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_16 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">88</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_16 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">88</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_16_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">55000</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_16_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">70000 &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_16_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">55000</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_17 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">90</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_17 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">90</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_17 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">90</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_17_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">68000</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_17_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">80000 &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_17_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">68000</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_18 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">92</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_18 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">92</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_18 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">92</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_18_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">80000</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_18_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">95000 &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_18_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">90000</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_19 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">96</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_19 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">96</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_19 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">96</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_19_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">95000</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_19_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">110000 &nbsp; &nbsp; &nbsp;</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_19_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">100000</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_20 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">100</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_20 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">100</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_20 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">100</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_20_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">110000</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_20_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">140000 &nbsp; &nbsp; &nbsp;</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">RATING_20_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">140000 &nbsp;</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_AGE]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_AGE]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_AGE]</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d5" href="#d5">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">// </span><span class="sf17b16">CURVA</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">&nbsp;</span><span class="sf17b16">DE</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">&nbsp;</span><span class="sf17b16">IDADE</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">&nbsp;</span><span class="sf17b16">MODIFICADA</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">&nbsp;</span><span class="sf17b16">(Evita</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">&nbsp;</span><span class="sf17b16">o "Bug $750" em jovens e veteranos)</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">AGE_1 = 16 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #000000; background-color: #efcb05; ">// </span><span class="sf17b16">Players</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">inclusively</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">less</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">than</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">this</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">age</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_1 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">16</span><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // </span><span style="color: #000000; background-color: #efcb05; ">Players</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">inclusively</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">less</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">than</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">this</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">age</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">AGE_1 = 16</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_1_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">-70 &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color: #000000; background-color: #efcb05; ">// </span><span class="sf17b16">Percentage</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">change</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">for</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">age</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_1_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">-20 &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color: #000000; background-color: #efcb05; ">// </span><span style="color: #000000; background-color: #efcb05; ">Percentage</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">change</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">for</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">age</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_1_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">0 </span><span style="color: #000000; background-color: #efcb05; ">// </span><span class="sf17b16">MODIFICADO</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">(Original</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">era</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">-70)</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_2 </span><span class="sf11b2">= </span><span class="sf10b2">18</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_2 </span><span class="sf11b2">= </span><span class="sf10b2">18</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_2 </span><span class="sf11b2">= </span><span class="sf10b2">18</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d6" href="#d6">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_2_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b18">0 // MODIFICADO (Original era </span><span style="color: #000000; background-color: #efcb05; ">-</span><span style="color: #000000; background-color: #efcb05; ">50</span><span class="sf17b16">)</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_2_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">-</span><span class="sf17b16">5</span><span style="color: #000000; background-color: #efcb05; ">0</span><span class="sf17b16">&nbsp;</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_2_VAL </span><span style="color: #000000; background-color: #efcb05; ">= -</span><span class="sf17b16">1</span><span style="color: #000000; background-color: #efcb05; ">0</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_3 </span><span class="sf11b2">= </span><span class="sf10b2">20</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_3 </span><span class="sf11b2">= </span><span class="sf10b2">20</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_3 </span><span class="sf11b2">= </span><span class="sf10b2">20</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d7" href="#d7">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_3_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">0</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_3_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">0</span><span class="sf17b18">&nbsp;</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">AGE_3_VAL </span><span style="color: #000000; background-color: #fbfadf; ">= </span><span style="color: #000000; background-color: #fbfadf; ">0</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_4 </span><span class="sf11b2">= </span><span class="sf10b2">22</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_4 </span><span class="sf11b2">= </span><span class="sf10b2">22</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_4 </span><span class="sf11b2">= </span><span class="sf10b2">22</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_4_VAL </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_4_VAL </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_4_VAL </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_5 </span><span class="sf11b2">= </span><span class="sf10b2">25</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_5 </span><span class="sf11b2">= </span><span class="sf10b2">25</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_5 </span><span class="sf11b2">= </span><span class="sf10b2">25</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_5_VAL </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_5_VAL </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_5_VAL </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d8" href="#d8">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_6 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">28</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_6 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">28</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Players inclusively less than this age</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">AGE_6 </span><span style="color: #000000; background-color: #fbfadf; ">= </span><span style="color: #000000; background-color: #fbfadf; ">28</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // </span><span style="color: #000000; background-color: #fbfadf; ">Players</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">inclusively</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">less</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">than</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">this</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">age</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_6_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">0</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_6_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">0</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Percentage change for age</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">AGE_6_VAL </span><span style="color: #000000; background-color: #fbfadf; ">= </span><span style="color: #000000; background-color: #fbfadf; ">0</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // </span><span style="color: #000000; background-color: #fbfadf; ">Percentage</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">change</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">for</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">age</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_7 </span><span class="sf11b2">= </span><span class="sf10b2">32</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_7 </span><span class="sf11b2">= </span><span class="sf10b2">32</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_7 </span><span class="sf11b2">= </span><span class="sf10b2">32</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d9" href="#d9">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_7_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">-5</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_7_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">0 </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_7_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">-5 </span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_8 </span><span class="sf11b2">= </span><span class="sf10b2">35</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_8 </span><span class="sf11b2">= </span><span class="sf10b2">35</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_8 </span><span class="sf11b2">= </span><span class="sf10b2">35</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d10" href="#d10">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_8_VAL </span><span style="color: #000000; background-color: #efcb05; ">= -</span><span class="sf17b16">10</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_8_VAL </span><span style="color: #000000; background-color: #efcb05; ">= -</span><span class="sf17b16">15 </span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">AGE_8_VAL </span><span style="color: #000000; background-color: #fbfadf; ">= -</span><span style="color: #000000; background-color: #fbfadf; ">15</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_9 </span><span class="sf11b2">= </span><span class="sf10b2">39</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_9 </span><span class="sf11b2">= </span><span class="sf10b2">39</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_9 </span><span class="sf11b2">= </span><span class="sf10b2">39</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d11" href="#d11">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_9_VAL </span><span style="color: #000000; background-color: #efcb05; ">= -</span><span style="color: #000000; background-color: #efcb05; ">20</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_9_VAL </span><span style="color: #000000; background-color: #efcb05; ">= -</span><span style="color: #000000; background-color: #efcb05; ">20</span><span class="sf17b18">&nbsp;</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">AGE_9_VAL </span><span style="color: #000000; background-color: #fbfadf; ">= -</span><span style="color: #000000; background-color: #fbfadf; ">20</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_10 </span><span class="sf11b2">= </span><span class="sf10b2">100</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_10 </span><span class="sf11b2">= </span><span class="sf10b2">100</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">AGE_10 </span><span class="sf11b2">= </span><span class="sf10b2">100</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d12" href="#d12">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_10_VAL </span><span style="color: #000000; background-color: #efcb05; ">= -</span><span class="sf17b16">3</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">AGE_10_VAL </span><span style="color: #000000; background-color: #efcb05; ">= -</span><span class="sf17b16">5</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">AGE_10_VAL </span><span style="color: #000000; background-color: #fbfadf; ">= -</span><span style="color: #000000; background-color: #fbfadf; ">50</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_POTENTIAL]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_POTENTIAL]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_POTENTIAL]</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d13" href="#d13">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">POTENTIAL_1 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">1</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">POTENTIAL_1 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">1</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // The remaining potential for the player ( Overall Potential - current Overall )</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">POTENTIAL_1 </span><span style="color: #000000; background-color: #fbfadf; ">= </span><span style="color: #000000; background-color: #fbfadf; ">1</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // </span><span style="color: #000000; background-color: #fbfadf; ">The</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">remaining</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">potential</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">for</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">the</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">player</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;( </span><span style="color: #000000; background-color: #fbfadf; ">Overall</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">Potential</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;- </span><span style="color: #000000; background-color: #fbfadf; ">current</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">Overall</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;)</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">POTENTIAL_1_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">10</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">POTENTIAL_1_VAL </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">10</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Percentage change for remaining potential</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">POTENTIAL_1_VAL </span><span style="color: #000000; background-color: #fbfadf; ">= </span><span style="color: #000000; background-color: #fbfadf; ">10</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // </span><span style="color: #000000; background-color: #fbfadf; ">Percentage</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">change</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">for</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">remaining</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">potential</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_2 </span><span class="sf11b2">= </span><span class="sf10b2">2</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_2 </span><span class="sf11b2">= </span><span class="sf10b2">2</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_2 </span><span class="sf11b2">= </span><span class="sf10b2">2</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_2_VAL </span><span class="sf11b2">= </span><span class="sf10b2">20</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_2_VAL </span><span class="sf11b2">= </span><span class="sf10b2">20</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_2_VAL </span><span class="sf11b2">= </span><span class="sf10b2">20</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_3 </span><span class="sf11b2">= </span><span class="sf10b2">3</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_3 </span><span class="sf11b2">= </span><span class="sf10b2">3</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_3 </span><span class="sf11b2">= </span><span class="sf10b2">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_3_VAL </span><span class="sf11b2">= </span><span class="sf10b2">30</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_3_VAL </span><span class="sf11b2">= </span><span class="sf10b2">30</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_3_VAL </span><span class="sf11b2">= </span><span class="sf10b2">30</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_4 </span><span class="sf11b2">= </span><span class="sf10b2">5</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_4 </span><span class="sf11b2">= </span><span class="sf10b2">5</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_4 </span><span class="sf11b2">= </span><span class="sf10b2">5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_4_VAL </span><span class="sf11b2">= </span><span class="sf10b2">40</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_4_VAL </span><span class="sf11b2">= </span><span class="sf10b2">40</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_4_VAL </span><span class="sf11b2">= </span><span class="sf10b2">40</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_5 </span><span class="sf11b2">= </span><span class="sf10b2">8</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_5 </span><span class="sf11b2">= </span><span class="sf10b2">8</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_5 </span><span class="sf11b2">= </span><span class="sf10b2">8</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_5_VAL </span><span class="sf11b2">= </span><span class="sf10b2">50</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_5_VAL </span><span class="sf11b2">= </span><span class="sf10b2">50</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_5_VAL </span><span class="sf11b2">= </span><span class="sf10b2">50</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_6 </span><span class="sf11b2">= </span><span class="sf10b2">11</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_6 </span><span class="sf11b2">= </span><span class="sf10b2">11</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_6 </span><span class="sf11b2">= </span><span class="sf10b2">11</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_6_VAL </span><span class="sf11b2">= </span><span class="sf10b2">40</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_6_VAL </span><span class="sf11b2">= </span><span class="sf10b2">40</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_6_VAL </span><span class="sf11b2">= </span><span class="sf10b2">40</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_7 </span><span class="sf11b2">= </span><span class="sf10b2">14</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_7 </span><span class="sf11b2">= </span><span class="sf10b2">14</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_7 </span><span class="sf11b2">= </span><span class="sf10b2">14</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_7_VAL </span><span class="sf11b2">= </span><span class="sf10b2">30</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_7_VAL </span><span class="sf11b2">= </span><span class="sf10b2">30</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_7_VAL </span><span class="sf11b2">= </span><span class="sf10b2">30</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_8 </span><span class="sf11b2">= </span><span class="sf10b2">17</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_8 </span><span class="sf11b2">= </span><span class="sf10b2">17</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_8 </span><span class="sf11b2">= </span><span class="sf10b2">17</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_8_VAL </span><span class="sf11b2">= </span><span class="sf10b2">20</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_8_VAL </span><span class="sf11b2">= </span><span class="sf10b2">20</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_8_VAL </span><span class="sf11b2">= </span><span class="sf10b2">20</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_9 </span><span class="sf11b2">= </span><span class="sf10b2">20</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_9 </span><span class="sf11b2">= </span><span class="sf10b2">20</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_9 </span><span class="sf11b2">= </span><span class="sf10b2">20</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_9_VAL </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_9_VAL </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_9_VAL </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_10 </span><span class="sf11b2">= </span><span class="sf10b2">25</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_10 </span><span class="sf11b2">= </span><span class="sf10b2">25</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_10 </span><span class="sf11b2">= </span><span class="sf10b2">25</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_10_VAL </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_10_VAL </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">POTENTIAL_10_VAL </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_CLUB_PRESTIGE]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_CLUB_PRESTIGE]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_CLUB_PRESTIGE]</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d14" href="#d14">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">// </span><span class="sf17b16">PENALIDADE</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">&nbsp;</span><span class="sf17b16">DE</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">&nbsp;</span><span class="sf17b16">PRESTÍGIO</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">&nbsp;</span><span class="sf17b16">NEUTRALIZADA</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">&nbsp;</span><span class="sf17b16">(Evita</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">&nbsp;</span><span class="sf17b16">o</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">&nbsp;</span><span class="sf17b16">"Bug $3000")</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b18">MAX = 20 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #000000; background-color: #efcb05; ">// </span><span class="sf17b16">The</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">maximum</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">value</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">club</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">prestige</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">can</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">be</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">MAX </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">20</span><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // </span><span style="color: #000000; background-color: #efcb05; ">The</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">maximum</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">value</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">club</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">prestige</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">can</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">be</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">M</span><span class="sf17b16">AX</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">20</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">M</span><span class="sf17b16">IN</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">= </span><span class="sf17b16">0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">The</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">minimum value club prestige can be</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">MIN </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">0</span><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // </span><span style="color: #000000; background-color: #efcb05; ">The</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">minimum</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">value</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">club</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">prestige</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">can</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">be</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span class="sf17b16">MIN</span><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">&nbsp;</span><span class="sf17b16">=</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">0</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PRESTIGE_1 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">3</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Players club prestige inclusively less than this value</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PRESTIGE_1 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">3</span><span style="color: #000000; background-color: #efcb05; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // </span><span style="color: #000000; background-color: #efcb05; ">Players</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">club</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">prestige</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">inclusively</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">less</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">than</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">this</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">value</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PRESTIGE_1 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">3</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PRESTIGE_1_VAL </span><span style="color: #000000; background-color: #efcb05; ">= -</span><span class="sf17b16">90 &nbsp; &nbsp; &nbsp;</span><span style="color: #000000; background-color: #efcb05; ">// </span><span class="sf17b16">Percentage</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">change</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PRESTIGE_1_VAL </span><span style="color: #000000; background-color: #efcb05; ">= -</span><span class="sf17b16">20 &nbsp; &nbsp; &nbsp;</span><span style="color: #000000; background-color: #efcb05; ">// </span><span style="color: #000000; background-color: #efcb05; ">Percentage</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span style="color: #000000; background-color: #efcb05; ">change</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PRESTIGE_1_VAL </span><span style="color: #000000; background-color: #efcb05; ">= -</span><span class="sf17b16">5 </span><span style="color: #000000; background-color: #efcb05; ">// </span><span class="sf17b16">MODIFICADO</span><span style="color: #000000; background-color: #efcb05; ">&nbsp;</span><span class="sf17b16">(Original era -90)</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_2 </span><span class="sf11b2">= </span><span class="sf10b2">5</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_2 </span><span class="sf11b2">= </span><span class="sf10b2">5</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_2 </span><span class="sf11b2">= </span><span class="sf10b2">5</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d15" href="#d15">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PRESTIGE_2_VAL </span><span style="color: #000000; background-color: #efcb05; ">= -</span><span class="sf17b16">2 // MODIFICADO (Original era -6</span><span style="color: #000000; background-color: #efcb05; ">0</span><span class="sf17b18">)</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PRESTIGE_2_VAL </span><span style="color: #000000; background-color: #efcb05; ">= -</span><span class="sf17b16">6</span><span style="color: #000000; background-color: #efcb05; ">0</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PRESTIGE_2_VAL </span><span style="color: #000000; background-color: #efcb05; ">= -</span><span class="sf17b16">1</span><span style="color: #000000; background-color: #efcb05; ">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_3 </span><span class="sf11b2">= </span><span class="sf10b2">15</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_3 </span><span class="sf11b2">= </span><span class="sf10b2">15</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_3 </span><span class="sf11b2">= </span><span class="sf10b2">15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_3_VAL </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_3_VAL </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_3_VAL </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_4 </span><span class="sf11b2">= </span><span class="sf10b2">17</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_4 </span><span class="sf11b2">= </span><span class="sf10b2">17</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_4 </span><span class="sf11b2">= </span><span class="sf10b2">17</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_4_VAL </span><span class="sf11b2">= </span><span class="sf10b2">25</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_4_VAL </span><span class="sf11b2">= </span><span class="sf10b2">25</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_4_VAL </span><span class="sf11b2">= </span><span class="sf10b2">25</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_5 </span><span class="sf11b2">= </span><span class="sf10b2">20</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_5 </span><span class="sf11b2">= </span><span class="sf10b2">20</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_5 </span><span class="sf11b2">= </span><span class="sf10b2">20</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_5_VAL </span><span class="sf11b2">= </span><span class="sf10b2">50</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_5_VAL </span><span class="sf11b2">= </span><span class="sf10b2">50</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PRESTIGE_5_VAL </span><span class="sf11b2">= </span><span class="sf10b2">50</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_INT_REPUTATION]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_INT_REPUTATION]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_INT_REPUTATION]</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d16" href="#d16">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">MAX </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">5</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">MAX </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">5</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // The maximum value international prestige can be</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">MAX </span><span style="color: #000000; background-color: #fbfadf; ">= </span><span style="color: #000000; background-color: #fbfadf; ">5</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // </span><span style="color: #000000; background-color: #fbfadf; ">The</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">maximum</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">value</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">international</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">prestige</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">can</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">be</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">MIN </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">0</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">MIN </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">0</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // The minimum value international prestige can be</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">MIN </span><span style="color: #000000; background-color: #fbfadf; ">= </span><span style="color: #000000; background-color: #fbfadf; ">0</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // </span><span style="color: #000000; background-color: #fbfadf; ">The</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">minimum</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">value</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">international</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">prestige</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">can</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">be</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">REPUTATION_1 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">1</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">REPUTATION_1 </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">1</span><span class="sf17b18">&nbsp; &nbsp; &nbsp; &nbsp; // Players international prestige inclusively less than this value</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">REPUTATION_1 </span><span style="color: #000000; background-color: #fbfadf; ">= </span><span style="color: #000000; background-color: #fbfadf; ">1</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp; &nbsp; &nbsp; &nbsp; // </span><span style="color: #000000; background-color: #fbfadf; ">Players</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">international</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">prestige</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">inclusively</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">less</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">than</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">this</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span><span style="color: #000000; background-color: #fbfadf; ">value</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_1_VAL </span><span class="sf11b2">= -</span><span class="sf10b2">20</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_1_VAL </span><span class="sf11b2">= -</span><span class="sf10b2">20</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_1_VAL </span><span class="sf11b2">= -</span><span class="sf10b2">20</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_2 </span><span class="sf11b2">= </span><span class="sf10b2">2</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_2 </span><span class="sf11b2">= </span><span class="sf10b2">2</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_2 </span><span class="sf11b2">= </span><span class="sf10b2">2</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_2_VAL </span><span class="sf11b2">= -</span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_2_VAL </span><span class="sf11b2">= -</span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_2_VAL </span><span class="sf11b2">= -</span><span class="sf10b2">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_3 </span><span class="sf11b2">= </span><span class="sf10b2">3</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_3 </span><span class="sf11b2">= </span><span class="sf10b2">3</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_3 </span><span class="sf11b2">= </span><span class="sf10b2">3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_3_VAL </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_3_VAL </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_3_VAL </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_4 </span><span class="sf11b2">= </span><span class="sf10b2">4</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_4 </span><span class="sf11b2">= </span><span class="sf10b2">4</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_4 </span><span class="sf11b2">= </span><span class="sf10b2">4</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_4_VAL </span><span class="sf11b2">= </span><span class="sf10b2">15</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_4_VAL </span><span class="sf11b2">= </span><span class="sf10b2">15</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_4_VAL </span><span class="sf11b2">= </span><span class="sf10b2">15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_5 </span><span class="sf11b2">= </span><span class="sf10b2">5</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_5 </span><span class="sf11b2">= </span><span class="sf10b2">5</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_5 </span><span class="sf11b2">= </span><span class="sf10b2">5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_5_VAL </span><span class="sf11b2">= </span><span class="sf10b2">30</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_5_VAL </span><span class="sf11b2">= </span><span class="sf10b2">30</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">REPUTATION_5_VAL </span><span class="sf11b2">= </span><span class="sf10b2">30</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_POSITION]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_POSITION]</span>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf8b2">[WAGE_POSITION]</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_GK </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_GK </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_GK </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_SW </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_SW </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_SW </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RWB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RWB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RWB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RCB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RCB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RCB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_CB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_CB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_CB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LCB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LCB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LCB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LWB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LWB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LWB </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RDM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RDM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RDM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d17" href="#d17">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_POSITION_CDM </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">0</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_POSITION_CDM </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">0</span><span class="sf17b18">&nbsp;</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_POSITION_CDM </span><span style="color: #000000; background-color: #fbfadf; ">= </span><span style="color: #000000; background-color: #fbfadf; ">0</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LDM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LDM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LDM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RCM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RCM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RCM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_CM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_CM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_CM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LCM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LCM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LCM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LM </span><span class="sf11b2">= </span><span class="sf10b2">0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RAM </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RAM </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RAM </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_CAM </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_CAM </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_CAM </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d18" href="#d18">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_POSITION_LAM </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">10</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_POSITION_LAM </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">10</span><span class="sf17b18">&nbsp;</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_POSITION_LAM </span><span style="color: #000000; background-color: #fbfadf; ">= </span><span style="color: #000000; background-color: #fbfadf; ">10</span><span style="color: #000000; background-color: #fbfadf; ">&nbsp;</span>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RF </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RF </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RF </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_CF </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_CF </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_CF </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LF </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LF </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LF </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RW </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RW </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RW </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RS </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RS </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_RS </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_ST </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_ST </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_ST </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LS </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LS </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+<td class="ln"></td><td class="sf3b2"><code><span class="sf7b2">PLAYER_POSITION_LS </span><span class="sf11b2">= </span><span class="sf10b2">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"><a id="d19" href="#d19">.</a></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_POSITION_LW </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; font-weight: bold; ">PLAYER_POSITION_LW </span><span style="color: #000000; background-color: #efcb05; ">= </span><span style="color: #000000; background-color: #efcb05; ">10</span>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; font-weight: bold; ">PLAYER_POSITION_LW </span><span style="color: #000000; background-color: #fbfadf; ">= </span><span style="color: #000000; background-color: #fbfadf; ">10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

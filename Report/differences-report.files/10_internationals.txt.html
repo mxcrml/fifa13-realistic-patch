@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WinMerge File Compare Report</title>
+<style>
+<!--
+table { table-layout: fixed; margin: 0; border: 1px solid #a0a0a0; box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); }
+th { position: sticky; top: 0; }
+td,th { word-break: break-all; font-size: 12pt; padding: 0 3px; }
+tr { vertical-align: top; }
+.title { font-weight: bold; color: white; background-color: blue; vertical-align: top; text-align: center; padding: 4px 4px; background: linear-gradient(mediumblue, darkblue);}
+.sf3b2 {color: #000000; background-color: #ffffff; }
+.sf3b5 {color: #000000; background-color: #0078d7; }
+.sf3b14 {color: #000000; background-color: #ffa0a0; }
+.sf3b16 {color: #000000; background-color: #f1e2ad; }
+.sf3b18 {color: #000000; background-color: #ffaa82; }
+.sf3b19 {color: #000000; background-color: #c8816c; }
+.sf6b2 {color: #ffffff; background-color: #ffffff; }
+.sf6b5 {color: #ffffff; background-color: #0078d7; }
+.sf6b14 {color: #ffffff; background-color: #ffa0a0; }
+.sf6b16 {color: #ffffff; background-color: #f1e2ad; }
+.sf6b18 {color: #ffffff; background-color: #ffaa82; }
+.sf6b19 {color: #ffffff; background-color: #c8816c; }
+.sf7b2 {color: #0000ff; background-color: #ffffff; font-weight: bold; }
+.sf7b5 {color: #0000ff; background-color: #0078d7; font-weight: bold; }
+.sf7b14 {color: #0000ff; background-color: #ffa0a0; font-weight: bold; }
+.sf7b16 {color: #0000ff; background-color: #f1e2ad; font-weight: bold; }
+.sf7b18 {color: #0000ff; background-color: #ffaa82; font-weight: bold; }
+.sf7b19 {color: #0000ff; background-color: #c8816c; font-weight: bold; }
+.sf8b2 {color: #800080; background-color: #ffffff; }
+.sf8b5 {color: #800080; background-color: #0078d7; }
+.sf8b14 {color: #800080; background-color: #ffa0a0; }
+.sf8b16 {color: #800080; background-color: #f1e2ad; }
+.sf8b18 {color: #800080; background-color: #ffaa82; }
+.sf8b19 {color: #800080; background-color: #c8816c; }
+.sf9b2 {color: #008000; background-color: #ffffff; }
+.sf9b5 {color: #008000; background-color: #0078d7; }
+.sf9b14 {color: #008000; background-color: #ffa0a0; }
+.sf9b16 {color: #008000; background-color: #f1e2ad; }
+.sf9b18 {color: #008000; background-color: #ffaa82; }
+.sf9b19 {color: #008000; background-color: #c8816c; }
+.sf10b2 {color: #ff0000; background-color: #ffffff; }
+.sf10b5 {color: #ff0000; background-color: #0078d7; }
+.sf10b14 {color: #ff0000; background-color: #ffa0a0; }
+.sf10b16 {color: #ff0000; background-color: #f1e2ad; }
+.sf10b18 {color: #ff0000; background-color: #ffaa82; }
+.sf10b19 {color: #ff0000; background-color: #c8816c; }
+.sf11b2 {color: #606060; background-color: #ffffff; }
+.sf11b5 {color: #606060; background-color: #0078d7; }
+.sf11b14 {color: #606060; background-color: #ffa0a0; }
+.sf11b16 {color: #606060; background-color: #f1e2ad; }
+.sf11b18 {color: #606060; background-color: #ffaa82; }
+.sf11b19 {color: #606060; background-color: #c8816c; }
+.sf12b2 {color: #800000; background-color: #ffffff; }
+.sf12b5 {color: #800000; background-color: #0078d7; }
+.sf12b14 {color: #800000; background-color: #ffa0a0; }
+.sf12b16 {color: #800000; background-color: #f1e2ad; }
+.sf12b18 {color: #800000; background-color: #ffaa82; }
+.sf12b19 {color: #800000; background-color: #c8816c; }
+.sf13b2 {color: #0080c0; background-color: #ffffff; }
+.sf13b5 {color: #0080c0; background-color: #0078d7; }
+.sf13b14 {color: #0080c0; background-color: #ffa0a0; }
+.sf13b16 {color: #0080c0; background-color: #f1e2ad; }
+.sf13b18 {color: #0080c0; background-color: #ffaa82; }
+.sf13b19 {color: #0080c0; background-color: #c8816c; }
+.sf15b2 {color: #000000; background-color: #ffffff; }
+.sf15b5 {color: #000000; background-color: #0078d7; }
+.sf15b14 {color: #000000; background-color: #ffa0a0; }
+.sf15b16 {color: #000000; background-color: #f1e2ad; }
+.sf15b18 {color: #000000; background-color: #ffaa82; }
+.sf15b19 {color: #000000; background-color: #c8816c; }
+.sf17b2 {color: #000000; background-color: #ffffff; }
+.sf17b5 {color: #000000; background-color: #0078d7; }
+.sf17b14 {color: #000000; background-color: #ffa0a0; }
+.sf17b16 {color: #000000; background-color: #f1e2ad; }
+.sf17b18 {color: #000000; background-color: #ffaa82; }
+.sf17b19 {color: #000000; background-color: #c8816c; }
+.sf20b2 {color: #000080; background-color: #ffffff; }
+.sf20b5 {color: #000080; background-color: #0078d7; }
+.sf20b14 {color: #000080; background-color: #ffa0a0; }
+.sf20b16 {color: #000080; background-color: #f1e2ad; }
+.sf20b18 {color: #000080; background-color: #ffaa82; }
+.sf20b19 {color: #000080; background-color: #c8816c; }
+.sf21b2 {color: #0080c0; background-color: #ffffff; }
+.sf21b5 {color: #0080c0; background-color: #0078d7; }
+.sf21b14 {color: #0080c0; background-color: #ffa0a0; }
+.sf21b16 {color: #0080c0; background-color: #f1e2ad; }
+.sf21b18 {color: #0080c0; background-color: #ffaa82; }
+.sf21b19 {color: #0080c0; background-color: #c8816c; }
+.sf3b2i {color: #ababab; background-color: #ffffff; }
+.sf3b5i {color: #005190; background-color: #0078d7; }
+.sf3b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf3b16i {color: #a19774; background-color: #f1e2ad; }
+.sf3b18i {color: #ab7257; background-color: #ffaa82; }
+.sf3b19i {color: #865749; background-color: #c8816c; }
+.sf6b2i {color: #ffffff; background-color: #ffffff; }
+.sf6b5i {color: #54a4e4; background-color: #0078d7; }
+.sf6b14i {color: #ffbfbf; background-color: #ffa0a0; }
+.sf6b16i {color: #f5ebc8; background-color: #f1e2ad; }
+.sf6b18i {color: #ffc6ab; background-color: #ffaa82; }
+.sf6b19i {color: #daaa9c; background-color: #c8816c; }
+.sf7b2i {color: #ababff; background-color: #ffffff; font-weight: bold; }
+.sf7b5i {color: #0051e4; background-color: #0078d7; font-weight: bold; }
+.sf7b14i {color: #ab6bbf; background-color: #ffa0a0; font-weight: bold; }
+.sf7b16i {color: #a197c8; background-color: #f1e2ad; font-weight: bold; }
+.sf7b18i {color: #ab72ab; background-color: #ffaa82; font-weight: bold; }
+.sf7b19i {color: #86579c; background-color: #c8816c; font-weight: bold; }
+.sf8b2i {color: #d5abd5; background-color: #ffffff; }
+.sf8b5i {color: #2a51bb; background-color: #0078d7; }
+.sf8b14i {color: #d56b96; background-color: #ffa0a0; }
+.sf8b16i {color: #cc979f; background-color: #f1e2ad; }
+.sf8b18i {color: #d57282; background-color: #ffaa82; }
+.sf8b19i {color: #b15772; background-color: #c8816c; }
+.sf9b2i {color: #abd5ab; background-color: #ffffff; }
+.sf9b5i {color: #007a90; background-color: #0078d7; }
+.sf9b14i {color: #ab966b; background-color: #ffa0a0; }
+.sf9b16i {color: #a1c274; background-color: #f1e2ad; }
+.sf9b18i {color: #ab9d57; background-color: #ffaa82; }
+.sf9b19i {color: #868149; background-color: #c8816c; }
+.sf10b2i {color: #ffabab; background-color: #ffffff; }
+.sf10b5i {color: #545190; background-color: #0078d7; }
+.sf10b14i {color: #ff6b6b; background-color: #ffa0a0; }
+.sf10b16i {color: #f59774; background-color: #f1e2ad; }
+.sf10b18i {color: #ff7257; background-color: #ffaa82; }
+.sf10b19i {color: #da5749; background-color: #c8816c; }
+.sf11b2i {color: #cbcbcb; background-color: #ffffff; }
+.sf11b5i {color: #1f71b0; background-color: #0078d7; }
+.sf11b14i {color: #cb8b8b; background-color: #ffa0a0; }
+.sf11b16i {color: #c1b794; background-color: #f1e2ad; }
+.sf11b18i {color: #cb9277; background-color: #ffaa82; }
+.sf11b19i {color: #a67769; background-color: #c8816c; }
+.sf12b2i {color: #d5abab; background-color: #ffffff; }
+.sf12b5i {color: #2a5190; background-color: #0078d7; }
+.sf12b14i {color: #d56b6b; background-color: #ffa0a0; }
+.sf12b16i {color: #cc9774; background-color: #f1e2ad; }
+.sf12b18i {color: #d57257; background-color: #ffaa82; }
+.sf12b19i {color: #b15749; background-color: #c8816c; }
+.sf13b2i {color: #abd5eb; background-color: #ffffff; }
+.sf13b5i {color: #007ad0; background-color: #0078d7; }
+.sf13b14i {color: #ab96aa; background-color: #ffa0a0; }
+.sf13b16i {color: #a1c2b3; background-color: #f1e2ad; }
+.sf13b18i {color: #ab9d96; background-color: #ffaa82; }
+.sf13b19i {color: #868187; background-color: #c8816c; }
+.sf15b2i {color: #ababab; background-color: #ffffff; }
+.sf15b5i {color: #005190; background-color: #0078d7; }
+.sf15b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf15b16i {color: #a19774; background-color: #f1e2ad; }
+.sf15b18i {color: #ab7257; background-color: #ffaa82; }
+.sf15b19i {color: #865749; background-color: #c8816c; }
+.sf17b2i {color: #ababab; background-color: #ffffff; }
+.sf17b5i {color: #005190; background-color: #0078d7; }
+.sf17b14i {color: #ab6b6b; background-color: #ffa0a0; }
+.sf17b16i {color: #a19774; background-color: #f1e2ad; }
+.sf17b18i {color: #ab7257; background-color: #ffaa82; }
+.sf17b19i {color: #865749; background-color: #c8816c; }
+.sf20b2i {color: #ababd5; background-color: #ffffff; }
+.sf20b5i {color: #0051bb; background-color: #0078d7; }
+.sf20b14i {color: #ab6b96; background-color: #ffa0a0; }
+.sf20b16i {color: #a1979f; background-color: #f1e2ad; }
+.sf20b18i {color: #ab7282; background-color: #ffaa82; }
+.sf20b19i {color: #865772; background-color: #c8816c; }
+.sf21b2i {color: #abd5eb; background-color: #ffffff; }
+.sf21b5i {color: #007ad0; background-color: #0078d7; }
+.sf21b14i {color: #ab96aa; background-color: #ffa0a0; }
+.sf21b16i {color: #a1c2b3; background-color: #f1e2ad; }
+.sf21b18i {color: #ab9d96; background-color: #ffaa82; }
+.sf21b19i {color: #868187; background-color: #c8816c; }
+.cn {text-align: center; word-break: normal; color: #000000; background-color: #f0f0f0;}
+.ln {text-align: right; word-break: normal; color: #000000; background-color: #f0f0f0;}
+-->
+</style>
+</head>
+<body>
+<table style="width: 100%; border-collapse: collapse;">
+<colgroup>
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 3 - 0.5em);" />
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 3 - 0.5em);" />
+<col style="width: 0.5em;" />
+<col style="width: calc(100% / 3 - 0.5em);" />
+</colgroup>
+<thead>
+<tr>
+<th colspan="2" class="title">Sans titre à Gauche</th>
+<th colspan="2" class="title">C:\Users\Maxime\Desktop\Fifa 13 ini files\Vanilla version\internationals.txt</th>
+<th colspan="2" class="title">C:\Users\Maxime\Desktop\Fifa 13 ini files\Maxdiati&apos;s version\internationals.txt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="ln"><a id="d1" href="#d1">.</a></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[TIER_AND_OBJECTIVES]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[TIER_AND_OBJECTIVES]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">1,54,1370,4,WIN,WIN,WIN,WIN</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">1,54,1370,4,WIN,WIN,WIN,WIN</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">1,45,1362,2,WIN,WIN,WIN,WIN</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">1,45,1362,2,WIN,WIN,WIN,WIN</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">2,52,1369,4,FINAL,FINAL,WIN,WIN</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">2,52,1369,4,FINAL,FINAL,WIN,WIN</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">2,14,1318,2,SEMI,SEMI,FINAL,FINAL</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">2,14,1318,2,SEMI,SEMI,FINAL,FINAL</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">2,21,1337,2,FINAL,FINAL,WIN,WIN</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">2,21,1337,2,FINAL,FINAL,WIN,WIN</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">2,34,105035,2,SEMI,SEMI,FINAL,FINAL</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">2,34,105035,2,SEMI,SEMI,FINAL,FINAL</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">2,27,1343,2,FINAL,FINAL,FINAL,FINAL</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">2,27,1343,2,FINAL,FINAL,FINAL,FINAL</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">3,18,1335,2,QUARTER,QUARTER,SEMI,SEMI</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">3,18,1335,2,QUARTER,QUARTER,SEMI,SEMI</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">3,83,1386,7,QUARTER,QUARTER,WIN,WIN</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">3,83,1386,7,QUARTER,QUARTER,WIN,WIN</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">3,38,1354,2,SEMI,SEMI,FINAL,FINAL</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">3,38,1354,2,SEMI,SEMI,FINAL,FINAL</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">3,60,1377,4,SEMI,SEMI,WIN,WIN</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">3,60,1377,4,SEMI,SEMI,WIN,WIN</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">4,103,1395,3,KNOCKOUT,KNOCKOUT,WIN,WIN</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">4,103,1395,3,KNOCKOUT,KNOCKOUT,WIN,WIN</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">4,13,1331,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">4,13,1331,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">4,22,1338,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">4,22,1338,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">4,167,974,5,KNOCKOUT,KNOCKOUT,WIN,WIN</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">4,167,974,5,KNOCKOUT,KNOCKOUT,WIN,WIN</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">4,40,1357,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">4,40,1357,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">4,48,1365,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">4,48,1365,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">4,95,1387,7,KNOCKOUT,KNOCKOUT,WIN,WIN</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">4,95,1387,7,KNOCKOUT,KNOCKOUT,WIN,WIN</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">5,195,1415,5,KNOCKOUT,KNOCKOUT,WIN,WIN</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">5,195,1415,5,KNOCKOUT,KNOCKOUT,WIN,WIN</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">5,108,111112,3,KNOCKOUT,KNOCKOUT,WIN,WI<wbr>N</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">5,108,111112,3,KNOCKOUT,KNOCKOUT,WIN,WI<wbr>N</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">5,37,1353,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">5,37,1353,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">5,42,1359,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">5,42,1359,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">5,46,1363,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">5,46,1363,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">5,47,1364,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">5,47,1364,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">6,4,1322,2,QUALIFY,QUALIFY,KNOCKOUT,KNO<wbr>CKOUT</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">6,4,1322,2,QUALIFY,QUALIFY,KNOCKOUT,KNO<wbr>CKOUT</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">6,7,1325,2,QUALIFY,QUALIFY,KNOCKOUT,KNO<wbr>CKOUT</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">6,7,1325,2,QUALIFY,QUALIFY,KNOCKOUT,KNO<wbr>CKOUT</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">6,9,1327,2,QUALIFY,QUALIFY,KNOCKOUT,KNO<wbr>CKOUT</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">6,9,1327,2,QUALIFY,QUALIFY,KNOCKOUT,KNO<wbr>CKOUT</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">6,55,111459,4,QUALIFY,QUALIFY,SEMI,SEMI<wbr></span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">6,55,111459,4,QUALIFY,QUALIFY,SEMI,SEMI<wbr></span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">6,56,111109,4,QUALIFY,QUALIFY,SEMI,SEMI<wbr></span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">6,56,111109,4,QUALIFY,QUALIFY,SEMI,SEMI<wbr></span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">6,111,111130,3,QUALIFY,QUALIFY,FINAL,FI<wbr>NAL</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">6,111,111130,3,QUALIFY,QUALIFY,FINAL,FI<wbr>NAL</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">6,25,1355,2,QUALIFY,QUALIFY,KNOCKOUT,KN<wbr>OCKOUT</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">6,25,1355,2,QUALIFY,QUALIFY,KNOCKOUT,KN<wbr>OCKOUT</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">6,36,1352,2,QUALIFY,QUALIFY,KNOCKOUT,KN<wbr>OCKOUT</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">6,36,1352,2,QUALIFY,QUALIFY,KNOCKOUT,KN<wbr>OCKOUT</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">6,39,1356,2,QUALIFY,QUALIFY,KNOCKOUT,KN<wbr>OCKOUT</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">6,39,1356,2,QUALIFY,QUALIFY,KNOCKOUT,KN<wbr>OCKOUT</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">6,44,1361,2,QUALIFY,QUALIFY,KNOCKOUT,KN<wbr>OCKOUT</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">6,44,1361,2,QUALIFY,QUALIFY,KNOCKOUT,KN<wbr>OCKOUT</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">7,57,111465,4,QUALIFY,QUALIFY,QUARTER,Q<wbr>UARTER</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">7,57,111465,4,QUALIFY,QUALIFY,QUARTER,Q<wbr>UARTER</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">7,17,1334,2,QUALIFY,QUALIFY,QUALIFY,QUA<wbr>LIFY</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">7,17,1334,2,QUALIFY,QUALIFY,QUALIFY,QUA<wbr>LIFY</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">7,23,1886,2,QUALIFY,QUALIFY,KNOCKOUT,KN<wbr>OCKOUT</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">7,23,1886,2,QUALIFY,QUALIFY,KNOCKOUT,KN<wbr>OCKOUT</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">7,198,111473,6,QUALIFY,QUALIFY,N/A,N/A</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">7,198,111473,6,QUALIFY,QUALIFY,N/A,N/A</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">7,35,110081,2,QUALIFY,QUALIFY,QUALIFY,Q<wbr>UALIFY</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">7,35,110081,2,QUALIFY,QUALIFY,QUALIFY,Q<wbr>UALIFY</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">7,59,111108,4,QUALIFY,QUALIFY,QUARTER,Q<wbr>UARTER</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">7,59,111108,4,QUALIFY,QUALIFY,QUARTER,Q<wbr>UARTER</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">7,140,111099,3,QUALIFY,QUALIFY,SEMI,SEM<wbr>I</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">7,140,111099,3,QUALIFY,QUALIFY,SEMI,SEM<wbr>I</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">7,53,111451,4,QUALIFY,QUALIFY,SEMI,SEMI<wbr></span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">7,53,111451,4,QUALIFY,QUALIFY,SEMI,SEMI<wbr></span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">7,58,1375,4,QUALIFY,QUALIFY,SEMI,SEMI</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">7,58,1375,4,QUALIFY,QUALIFY,SEMI,SEMI</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">7,61,111487,4,QUALIFY,QUALIFY,SEMI,SEMI<wbr></span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">7,61,111487,4,QUALIFY,QUALIFY,SEMI,SEMI<wbr></span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">7,159,111466,5,QUALIFY,QUALIFY,SEMI,SEM<wbr>I</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">7,159,111466,5,QUALIFY,QUALIFY,SEMI,SEM<wbr>I</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">4,12,1330,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">4,12,1330,2,KNOCKOUT,KNOCKOUT,QUARTER,Q<wbr>UARTER</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[LEAGUE_RANKINGS]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[LEAGUE_RANKINGS]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">13,1,2,3,4,7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">13,1,2,3,4,7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">19,1,2,3,4,7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">19,1,2,3,4,7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">31,1,2,3,4,7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">31,1,2,3,4,7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">53,1,2,3,4,7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">53,1,2,3,4,7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">16,2,3,4,6,7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">16,2,3,4,6,7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">7,2,4,5,6,7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">7,2,4,5,6,7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">67,3,5,6,7,7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">67,3,5,6,7,7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">308,3,5,6,7,7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">308,3,5,6,7,7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">10,4,5,6,7,7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">10,4,5,6,7,7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">14,4,6,7,7,7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">14,4,6,7,7,7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">341,4,6,7,7,7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">341,4,6,7,7,7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">4,5,6,7,7,7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">4,5,6,7,7,7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">20,5,6,7,7,7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">20,5,6,7,7,7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">39,5,6,7,7,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">39,5,6,7,7,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">32,5,6,7,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">32,5,6,7,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">50,5,6,7,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">50,5,6,7,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">54,5,6,7,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">54,5,6,7,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">350,5,6,7,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">350,5,6,7,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">1,6,7,7,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">1,6,7,7,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">17,6,7,-1,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">17,6,7,-1,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">41,6,7,-1,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">41,6,7,-1,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">189,6,7,-1,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">189,6,7,-1,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">66,7,7,-1,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">66,7,7,-1,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">80,7,7,-1,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">80,7,7,-1,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">83,7,7,-1,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">83,7,7,-1,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">56,7,-1,-1,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">56,7,-1,-1,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">60,7,-1,-1,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">60,7,-1,-1,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">61,7,-1,-1,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">61,7,-1,-1,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">65,7,-1,-1,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">65,7,-1,-1,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">351,7,-1,-1,-1,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">351,7,-1,-1,-1,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[JOB_AVAILABILITY]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[JOB_AVAILABILITY]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">60,20,5,5,5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">60,20,5,5,5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">70,25,10,5,5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">70,25,10,5,5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">80,35,25,5,5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">80,35,25,5,5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">90,55,25,10,10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">90,55,25,10,10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">100,70,30,10,10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">100,70,30,10,10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[JOB_AVAILABILITY_SETTINGS]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[JOB_AVAILABILITY_SETTINGS]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Nationality Bonus,20</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">Nationality Bonus,20</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[JOB_OFFER_CHANCE]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[JOB_OFFER_CHANCE]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">100,90</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">100,90</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">90,85</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">90,85</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">80,80</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">80,80</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">70,75</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">70,75</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">60,65</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">60,65</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">50,45</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">50,45</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">40,25</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">40,25</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">30,15</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">30,15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">20,10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">20,10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">10,0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">10,0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">0,0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">0,0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[SQUAD_SELECTION]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[SQUAD_SELECTION]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">GK,3,5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">GK,3,5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">LB,2,4</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">LB,2,4</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">CB,5,8</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">CB,5,8</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">RB,2,4</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">RB,2,4</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">LM,2,4</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">LM,2,4</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">CM,5,10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">CM,5,10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">RM,2,4</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">RM,2,4</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">ST,4,8</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">ST,4,8</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[SQUAD_SELECTION_SETTINGS]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[SQUAD_SELECTION_SETTINGS]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Injury Chance,10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">Injury Chance,10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Injury - Light,70</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">Injury - Light,70</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Injury - Medium,25</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">Injury - Medium,25</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Injury - Severe,5</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">Injury - Severe,5</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Email- Tournament Deadline Reminder (Days),45</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">Email- Tournament Deadline Reminder (Days),45</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Email- Tournament Deadline (Days),30</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">Email- Tournament Deadline (Days),30</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Email- Friendly Deadline Reminder (Days),14</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">Email- Friendly Deadline Reminder (Days),14</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Email- Friendly Deadline (Days),7</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">Email- Friendly Deadline (Days),7</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Age Cutoff,35</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">Age Cutoff,35</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Player International Leave Start Date Offset,1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">Player International Leave Start Date Offset,1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Player International Leave End Date Offset,1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">Player International Leave End Date Offset,1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[PAP_FORM_EFFECTS]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[PAP_FORM_EFFECTS]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">100,18</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">100,18</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">90,15</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">90,15</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">80,11</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">80,11</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">70,6</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">70,6</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">60,0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">60,0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">50,-3</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">50,-3</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">40,-8</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">40,-8</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">30,-10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">30,-10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">20,-10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">20,-10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">0,-10</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">0,-10</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[NATIONAL_RIVALRIES]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[NATIONAL_RIVALRIES]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">52,54</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">52,54</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">54,52</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">54,52</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">52,14</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">52,14</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">14,52</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">14,52</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">22,48</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">22,48</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">48,22</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">48,22</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">39,23</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">39,23</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">23,39</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">23,39</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">95,83</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">95,83</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[MANAGER_SUCCESS_RATIOS]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[MANAGER_SUCCESS_RATIOS]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">20,80,60</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">20,80,60</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[TABLE_PLACEMENT_PERCENTILES]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[TABLE_PLACEMENT_PERCENTILES]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">15,40</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">15,40</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[JOB_OFFER_SCHEDULE]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[JOB_OFFER_SCHEDULE]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">14,62,365,3,7,75,7,90</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">14,62,365,3,7,75,7,90</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[MANAGER_PERFORMANCE_TABLE]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[MANAGER_PERFORMANCE_TABLE]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">40,0,0,0,0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">40,0,0,0,0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">50,5,0,0,0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">50,5,0,0,0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">60,15,0,0,0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">60,15,0,0,0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">70,35,5,0,0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">70,35,5,0,0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">80,50,5,5,0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">80,50,5,5,0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[COMPETITION_SETTINGS]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[COMPETITION_SETTINGS]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Cup Clear Day Buffer,30</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">Cup Clear Day Buffer,30</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[COMPETITION_STADIUMS]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[COMPETITION_STADIUMS]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">990,2014,FINAL,197</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">990,2014,FINAL,197</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">990,2014,GKO,229</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">990,2014,GKO,229</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">990,2014,GKO,212</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">990,2014,GKO,212</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">990,2018,FINAL,195</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">990,2018,FINAL,195</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">990,2018,GKO,174</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">990,2018,GKO,174</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">990,2018,GKO,196</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">990,2018,GKO,196</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">990,2022,FINAL,195</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">990,2022,FINAL,195</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">990,2022,GKO,176</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">990,2022,GKO,176</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">990,2022,GKO,196</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">990,2022,GKO,196</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">980,2016,FINAL,197</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">980,2016,FINAL,197</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">980,2016,GKO,176</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">980,2016,GKO,176</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">980,2016,GKO,179</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">980,2016,GKO,179</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">980,2020,FINAL,195</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">980,2020,FINAL,195</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">980,2020,GKO,196</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">980,2020,GKO,196</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">980,2020,GKO,174</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">980,2020,GKO,174</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[MANAGER_PERFORMANCE_GAP_RATIO]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[MANAGER_PERFORMANCE_GAP_RATIO]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">VERY_LIKELY,ON_TARGET</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">VERY_LIKELY,ON_TARGET</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">LIKELY,ON_TARGET</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">LIKELY,ON_TARGET</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">POSSIBLE,ON_TARGET</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">POSSIBLE,ON_TARGET</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">UNLIKELY,ONE_BELOW</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">UNLIKELY,ONE_BELOW</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">IMPOSSIBLE,TWO_BELOW_OR_MORE</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">IMPOSSIBLE,TWO_BELOW_OR_MORE</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">[CUP_RESULT_RELATION_SETTINGS]</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">[CUP_RESULT_RELATION_SETTINGS]</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">World Cup To Regional Cup Result Relation,0</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">World Cup To Regional Cup Result Relation,0</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code><span style="color: #000000; background-color: #efcb05; ">Regional Cup To World Cup Result Relation,-1</span></code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code><span style="color: #000000; background-color: #fbfadf; ">Regional Cup To World Cup Result Relation,-1</span></code></td>
+</tr>
+<tr>
+<td class="ln"></td><td style="color: #000000; background-color: #c0c0c0; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #efcb05; "><code>&nbsp;</code></td>
+<td class="ln"></td><td style="color: #000000; background-color: #fbfadf; "><code>&nbsp;</code></td>
+</tr>
+<tr>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+<td class="ln"></td><td class="sf3b2"><code>&nbsp;</code></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
