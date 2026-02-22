@@ -19,6 +19,8 @@ Mode rebuilt from vanilla FIFA 13 settings for maximum stability.
 
 Full details are available in the difference report.
 
+[**View detailed report**](https://rawcdn.githack.com/mxcrml/fifa13-realistic-patch/183bd8e1ef56d76e58944ce1157276574911ee2d/Report/differences-report.html)
+
 ## Installation
 
 Download all files from this repo, then:
