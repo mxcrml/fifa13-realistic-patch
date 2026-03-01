@@ -47,4 +47,6 @@ Download all files from this repo, then:
 
    This mod only takes effect on a **new career save** - it will not affect existing saves.
 
-## **Testing in progress (*will be completed later*)**
+## **Testing status**
+
+First season completed. Overall feel is more balanced than Gugabelletti's original — transfer window ran without crashes or instability. That said, several adjustments were identified along the way and applied in **v2** to further improve the experience (see changelog in Version 2 release).
