@@ -23,7 +23,7 @@ Full details are available in the difference report.
 
 ## Installation
 
-[Demo video](https://vento.so/view/6e1edb0e-6caf-433b-8f1a-5abdc3b75632)
+**[Demo video](https://vento.so/view/6e1edb0e-6caf-433b-8f1a-5abdc3b75632)**
 
 Download all files from this repo, then:
 
