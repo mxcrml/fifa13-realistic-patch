@@ -1,7 +1,7 @@
 0,rule_bookings,on
 0,rule_offsides,on
 0,rule_injuries,on
-0,rule_numsubsbench,9
+0,rule_numsubsbench,7
 0,rule_numsubsmatch,3
 0,rule_suspension,0
 0,standings_pointswin,3
@@ -60,3 +60,4 @@
 23,match_matchimportance,90
 24,num_games,1
 24,info_slot_champ,1
+
