@@ -2,7 +2,7 @@
 0,rule_bookings,on
 0,rule_offsides,on
 0,rule_injuries,on
-0,rule_numsubsbench,9
+0,rule_numsubsbench,7
 0,rule_numsubsmatch,3
 0,rule_suspension,0
 0,rule_numyellowstored,5
@@ -1014,7 +1014,7 @@
 683,info_slot_champ,1
 683,match_stadium,155
 684,asset_id,203
-684,rule_numsubsbench,9
+684,rule_numsubsbench,7
 684,comp_type,CUP
 684,match_matchimportance,21
 685,match_stagetype,SETUP
@@ -1135,7 +1135,7 @@
 767,asset_id,14
 767,comp_type,LEAGUE
 767,match_matchimportance,17
-767,rule_numsubsbench,9
+767,rule_numsubsbench,7
 768,match_matchsituation,LEAGUE
 768,info_prize_money,50000
 768,info_prize_money_drop,5
@@ -1165,7 +1165,7 @@
 770,asset_id,60
 770,comp_type,LEAGUE
 770,match_matchimportance,17
-770,rule_numsubsbench,9
+770,rule_numsubsbench,7
 771,match_matchsituation,LEAGUE
 771,info_prize_money,25000
 771,info_prize_money_drop,5
@@ -1197,7 +1197,7 @@
 773,asset_id,61
 773,comp_type,LEAGUE
 773,match_matchimportance,17
-773,rule_numsubsbench,9
+773,rule_numsubsbench,7
 774,match_matchsituation,LEAGUE
 774,info_prize_money,25000
 774,info_prize_money_drop,5
@@ -1486,7 +1486,7 @@
 924,info_color_slot_releg,19
 924,info_color_slot_releg,20
 925,info_league_promo,16
-925,rule_numsubsbench,9
+925,rule_numsubsbench,7
 925,asset_id,17
 925,comp_type,LEAGUE
 925,match_matchimportance,17
@@ -1642,7 +1642,7 @@
 995,nation_id,25
 995,rule_suspension,995
 995,rule_numyellowstored,4
-996,rule_numsubsbench,9
+996,rule_numsubsbench,7
 996,asset_id,365
 996,comp_type,CUP
 996,match_matchimportance,21
@@ -1891,7 +1891,7 @@
 1118,nation_id,36
 1118,rule_suspension,1118
 1118,rule_numyellowstored,3
-1119,rule_numsubsbench,9
+1119,rule_numsubsbench,7
 1119,asset_id,217
 1119,comp_type,CUP
 1119,match_matchimportance,21
@@ -1929,7 +1929,7 @@
 1140,num_games,1
 1140,info_slot_champ,1
 1140,match_stadium,26
-1141,rule_numsubsbench,9
+1141,rule_numsubsbench,7
 1141,asset_id,41
 1141,comp_type,LEAGUE
 1141,match_matchimportance,17
@@ -1944,7 +1944,7 @@
 1144,nation_id,37
 1144,rule_suspension,1144
 1144,rule_numyellowstored,4
-1145,rule_numsubsbench,9
+1145,rule_numsubsbench,7
 1145,asset_id,366
 1145,comp_type,CUP
 1145,match_matchimportance,21
@@ -1984,7 +1984,7 @@
 1166,match_stadium,179
 1167,asset_id,66
 1167,comp_type,LEAGUE
-1167,rule_numsubsbench,9
+1167,rule_numsubsbench,7
 1167,match_matchimportance,17
 1168,match_matchsituation,LEAGUE
 1168,info_prize_money,500000
@@ -2106,7 +2106,7 @@
 1222,nation_id,42
 1222,rule_suspension,1222
 1222,rule_numyellowstored,4
-1223,rule_numsubsbench,9
+1223,rule_numsubsbench,7
 1223,asset_id,219
 1223,comp_type,CUP
 1223,match_matchimportance,21
@@ -2676,7 +2676,7 @@
 1473,schedule_seasonstartmonth,SEP
 1474,asset_id,351
 1474,comp_type,LEAGUE
-1474,rule_numsubsbench,9
+1474,rule_numsubsbench,7
 1474,match_matchimportance,17
 1475,match_matchsituation,LEAGUE
 1475,info_prize_money,800000
@@ -2930,3 +2930,4 @@
 1618,match_stagetype,FRIENDLY
 1618,match_matchimportance,30
 1618,match_matchsituation,FRIENDLY
+
