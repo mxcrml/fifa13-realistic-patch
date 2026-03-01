@@ -51,4 +51,4 @@ Download all files from this repo, then:
 
 ## **Testing status**
 
-First season completed. Overall feel is more balanced than Gugabelletti's original — transfer window ran without crashes or instability. That said, several adjustments were identified along the way and applied in **v2** to further improve the experience (see changelog in Version 2 release).
+First season completed. Overall feel is more balanced than Gugabelletti's original – transfer window ran without crashes or instability. That said, several adjustments were identified along the way and applied in **v2** to further improve the experience (see changelog in Version 2 release).
