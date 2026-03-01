@@ -23,8 +23,6 @@ Full details are available in the difference report.
 
 ## Installation
 
-**[Demo video](https://vento.so/view/6e1edb0e-6caf-433b-8f1a-5abdc3b75632)**
-
 Download all files from this repo, then:
 
 1. **Open your FIFA 13 Game folder**
@@ -48,6 +46,8 @@ Download all files from this repo, then:
 5. **Start a new Career**
 
    This mod only takes effect on a **new career save** - it will not affect existing saves.
+
+**[Demo video of the installation process](https://vento.so/view/6e1edb0e-6caf-433b-8f1a-5abdc3b75632)**
 
 ## **Testing status**
 
