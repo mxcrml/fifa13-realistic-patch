@@ -41,7 +41,7 @@ Download all files from this repo, then:
 
 4. **Run the File Regenerator (*Skipping this step will break the mod*)**
 
-   Run your file regenerator tool and let it finish. This updates the game's master index so it recognizes the new files.
+   Run your file regenerator tool (you can downlaod one from the [Regenerator folder](https://github.com/mxcrml/fifa13-realistic-patch/tree/main/Regenerator)) as administrator and let it finish. This updates the game's master index so it recognizes the new files.
 
 5. **Start a new Career**
 
